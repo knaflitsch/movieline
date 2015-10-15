@@ -8,11 +8,8 @@
 <link
 	href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="./res/js/jquery.js" type="text/javascript"></script>
 <script src="./res/js/bootstrap.js" type="text/javascript"></script>
-<script src="./res/js/jquery.session.js" type="text/javascript"></script>
-<script src="./res/js/bootbox.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 
