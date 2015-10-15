@@ -13,19 +13,35 @@
 
 
 <script>
-    function validateForm() {
-        var un = document.loginform.usr.value;
-        var pw = document.loginform.pword.value;
-        var username = "username"; 
-        var password = "password";
-        if ((un == username) && (pw == password)) {
-            return true;
-        }
-        else {
-            alert ("Login was unsuccessful, please check your username and password");
-            return false;
-        }
-  }
+	$(function(){
+		
+		$(document).ready(function(){
+			login();
+		});
+		
+		
+		function login() {
+		 	$("#loginBtn").click(function(){
+		 		var un = $("#userName").val();	 		
+		 		var pw = $("#password").val();
+		 		if (un == '' || pw == '') {
+		            $('#userName');
+		            $('#password');
+		            alert("Please fill all fields...!!!!!!");
+		        }else{
+		        	if((un == 'admin') && (pw == '123')){
+		        		alert("Yesssss");
+		        	} else{
+		        		alert("Noooooo");
+		        	}
+		        }
+		        
+		 	});
+		 	
+		 	
+		}
+	});
+		
 </script>
 <body>
 
@@ -37,9 +53,9 @@
 	
 		
 			<h1 class="form-signin-heading text-muted">Sign In</h1>
-			<input type="text" class="form-control" name="usr" placeholder="Admin" required="" autofocus="">
-			<input type="password" class="form-control" name="pword" placeholder="Password" required="">
-			<button class="btn btn-lg btn-primary btn-block" type="submit">
+			<input id="userName" type="text" class="form-control" name="usr" placeholder="Admin">
+			<input id="password" type="password" class="form-control" name="pword" placeholder="Password" required="">
+			<button id="loginBtn"class="btn btn-lg btn-primary btn-block" type="submit">
 				Sign In
 			</button>
 		
