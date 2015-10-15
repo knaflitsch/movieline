@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Blank du Pimmelberger</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,39 +25,6 @@
 <link href="res/css/carousel.css" rel="stylesheet">
 </head>
 <<<<<<< HEAD
-
-
-<script>
-	$(function(){
-		
-		$(document).ready(function(){
-			login();
-		});
-		
-		
-		function login() {
-		 	$("#loginBtn").click(function(){
-		 		var un = $("#userName").val();	 		
-		 		var pw = $("#password").val();
-		 		if (un == '' || pw == '') {
-		            $('#userName');
-		            $('#password');
-		            alert("Please fill all fields...!!!!!!");
-		        }else{
-		        	if((un == 'admin') && (pw == '123')){
-		        		alert("Yesssss");
-		        	} else{
-		        		alert("Noooooo");
-		        	}
-		        }
-		        
-		 	});
-		 	
-		 	
-		}
-	});
-		
-</script>
 =======
 >>>>>>> c8d5255bda38f72b0a4c14730d9e237a6733edec
 <body>
@@ -99,16 +66,6 @@
 				<div class="item">
 
 <<<<<<< HEAD
-	<div id="login">
-	
-		
-			<h1 class="form-signin-heading text-muted">Sign In</h1>
-			<input id="userName" type="text" class="form-control" name="usr" placeholder="Admin">
-			<input id="password" type="password" class="form-control" name="pword" placeholder="Password" required="">
-			<button id="loginBtn"class="btn btn-lg btn-primary btn-block" type="submit">
-				Sign In
-			</button>
-		
 	
 =======
 					<div class="container">
@@ -120,7 +77,7 @@
 							</p>
 						</div>
 					</div>
-				</div>
+				
 			</div>
 			<a class="left carousel-control" href="#myCarousel" role="button"
 				data-slide="prev"> <span
@@ -135,6 +92,75 @@
 		<!-- /.carousel -->
 >>>>>>> c8d5255bda38f72b0a4c14730d9e237a6733edec
 	</div>
+	
+	<div id="login">
+	
+		
+			<h1 class="form-signin-heading text-muted">Sign In</h1>
+			<input id="userName" type="text" class="form-control" name="usr" placeholder="Admin">
+			<input id="password" type="password" class="form-control" name="pword" placeholder="Password" required="">
+			<button id="loginBtn"class="btn btn-lg btn-primary btn-block" type="submit">
+				Sign In
+			</button>
+	</div>
+	
+	<div id="logout">
+	
+		<button id="logoutBtn"class="btn btn-lg btn-primary btn-block" type="delete">Logout</button>
+	
+	</div>
 
 </body>
+<script type="text/javascript">
+
+	function hideElements(){
+		$("#logout").hide();
+	}
+
+
+	$(function(){
+		
+		$(document).ready(function(){
+			login();
+			logout();
+			hideElements();
+		});
+		
+		
+		function login() {
+		 	$("#loginBtn").click(function(){
+		 		var un = $("#userName").val();	 		
+		 		var pw = $("#password").val();
+		 		if (un == '' || pw == '') {
+		            $('#userName');
+		            $('#password');
+		            alert("Please fill all fields...!!!!!!");
+		        }else{
+		        	if((un == 'admin') && (pw == '123')){
+		        		alert("Yesssss");
+		        		$("#login").hide();
+		        		$('#logout').show();
+		        		
+		        	} else{
+		        		alert("Noooooo");
+		        	}
+		        }
+		        
+		 	});
+		 	
+		 	
+		}
+		
+		function logout() {
+			$("#logoutBtn").click(function(){
+				$("#userName").val("");
+				$("#password").val("");
+				$("#login").show();
+        		$('#logout').hide();
+        		alert("tschau");
+			});
+		}
+	});
+		
+</script>
 </html>
