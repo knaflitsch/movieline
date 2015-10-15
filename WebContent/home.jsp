@@ -64,7 +64,7 @@
 
 					<div class="container">
 						<div class="carousel-caption" style="color: #5a5a5a;">
-							<h1>Überschrift 3</h1>
+							<h1>Überschrift 31</h1>
 							<p>Text 3</p>
 							<p>
 								<a class="btn2" href="#" role="button">Mehr Anzeigen</a>
