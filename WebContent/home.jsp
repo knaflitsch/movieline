@@ -23,6 +23,20 @@
 <link href="res/assets/docs.css" rel="stylesheet">
 <link href="res/css/bootstrap.min.css" rel="stylesheet">
 <link href="res/css/carousel.css" rel="stylesheet">
+
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
 </head>
 <body>
 	<div id="wrapper">
@@ -39,10 +53,10 @@
 
 					<div class="container">
 						<div class="carousel-caption" style="color: #5a5a5a;">
-							<h1>Ãœberschrift 1</h1>
+							<h1>Überschrift 1</h1>
 							<p>Text</p>
 							<p>
-								<a class="btn2" href="History.jsp" role="button">>Mehr Anzeigen</a>
+								<a class="btn2" href="History.jsp" role="button">Mehr Anzeigen</a>
 							</p>
 						</div>
 					</div>
@@ -51,7 +65,7 @@
 
 					<div class="container">
 						<div class="carousel-caption" style="color: #5a5a5a;">
-							<h1>Ãœberschrift 2</h1>
+							<h1>Überschrift 2</h1>
 							<p>Text 2</p>
 
 							<p>
@@ -64,7 +78,7 @@
 
 					<div class="container">
 						<div class="carousel-caption" style="color: #5a5a5a;">
-							<h1>Ãœberschrift 31</h1>
+							<h1>Überschrift 3</h1>
 							<p>Text 3</p>
 							<p>
 								<a class="btn2" href="#" role="button">Mehr Anzeigen</a>
@@ -76,7 +90,7 @@
 			<a class="left carousel-control" href="#myCarousel" role="button"
 				data-slide="prev"> <span
 				class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				<span class="sr-only">ZurÃ¼ck</span>
+				<span class="sr-only">Zurück</span>
 			</a> <a class="right carousel-control" href="#myCarousel" role="button"
 				data-slide="next"> <span
 				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
@@ -85,6 +99,8 @@
 		</div>
 		<!-- /.carousel -->
 	</div>
-
+	
+	
+	
 </body>
 </html>
