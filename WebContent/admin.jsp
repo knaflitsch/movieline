@@ -17,7 +17,54 @@
 <title>Insert title here</title>
 
 <script  type="text/javascript">
+var pointer = 0;
+
 $(document).ready(function() {
+	//Glyphon Function
+	$("#btnBack").click(function(){
+			pointer = pointer - 5;
+			$("#data").fadeOut('slow', function() {
+
+			});
+		});
+		
+		$("#btnNext").click(function(){
+			pointer = pointer + 5;
+			$("#data").fadeOut('slow', function() {
+
+			});
+		});
+		
+	//Set Up Data
+	$( document ).ready(function() {
+			//loadNormalData();
+		});
+		
+	//Delete Function 
+	$("#dialog_delete").hide();
+		
+	$("#dialog_delete").dialog({
+		autoOpen: false,
+		show: {
+		effect: "clip",
+		duration: 500
+		},
+		hide: {
+		effect: "clip",
+		duration: 500
+		}
+		});
+		
+	$(document).on("click","#deleteBtn", function(){
+			var id = $(this).attr("data-id");
+			var name = $(this).attr("data-name");
+			
+			$("#deleteTitle").html("Delete User -"+name+"-");
+			$("#delete-id").val(id);
+			$("#dialog_delete").dialog("open");
+		});
+	
+	//Realtime Search function of Table
     var activeSystemClass = $('.list-group-item.active');
 
     //something is entered in search form
@@ -74,47 +121,81 @@ $(document).ready(function() {
 </style>
 </head>
 <body>
+<div id="dialog_delete" title="Delete Movie">
+		<p id="deleteTitle"></p>
+		<table class="table">
+			<tr>
+				<td><button id="deleteTrue" class="btn btn-default">Yes</button></td>
+				<td><button id="deleteFalse" class="btn btn-default">No</button></td>
+				<td><input type="hidden" id="delete-id"></td>
+			</tr>
+		</table>
+
+</div>
 <div id="adminTable">
 	<div class="row">
         <div class="col-md-2">
                 <div class="input-group">
                     <input class="form-control" id="system-search" name="q" placeholder="Search for" required>
                 </div>
+                <div style="margin-top:5px;" id="componentsGlyph">
+				<button title="Previous Page" class="btn btn-default" id="btnBack">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				</button>
+				<button title="Next Page" class="btn btn-default" id="btnNext">				
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				</button>
+			</div>
         </div>
 		<div class="col-md-10">
-    	 <table class="table table-list-search">
+    	 <table id="data" class="table table-list-search">
                     <thead>
                         <tr>
                             <th>Name</th>
                             <th>Genre</th>
                             <th>Release</th>
                             <th>Info</th>
+                            <th>Actors</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                    	<tr>
+                    	<tr id="tableRow_1">
                     		<td>Them Hoes</td>
                     		<td>Hardcore XXX</td>
                     		<td>1999</td>
                     		<td>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</td>
+                     		<td>Some Fags</td>
+                     		<td><button class='btn btn-default' id='deleteBtn' data-id="1" data-name="1">Delete</button></td>
+                     		<td><button class='btn btn-default' id='changeBtn' data-id="1">Change</button></td>
                      	</tr>
-                     	<tr>
+                     	<tr id="tableRow_22">
                     		<td>Racing Grid eXtReME</td>
                     		<td>Hardcore Race</td>
                     		<td>1752</td>
                     		<td>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</td>
+                     		<td>Some more Fags</td>
+                     		<td><button class='btn btn-default' id='deleteBtn' data-id="2" data-name="2">Delete</button></td>
+                     		<td><button class='btn btn-default' id='changeBtn' data-id="2">Change</button></td>
                      	</tr>
-                     	<tr>
+                     	<tr id="tableRow_3">
                     		<td>Fishing Lies Within</td>
                     		<td>Hardcore XXX Documentray</td>
                     		<td>2202</td>
                     		<td>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</td>
+                     		<td>Some stupid Fags</td>
+                     		<td><button class='btn btn-default' id='deleteBtn' data-id="3" data-name="3">Delete</button></td>
+                     		<td><button class='btn btn-default' id='changeBtn' data-id="3">Change</button></td>
                      	</tr>
-                     	<tr>
+                     	<tr id="tableRow_4">
                     		<td>Milos in the Hawt</td>
                     		<td>Hardcore Action Sheit</td>
                     		<td>2016</td>
                     		<td>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</td>
+                     		<td>The bals Fag</td>
+                     		<td><button class='btn btn-default' id='deleteBtn' data-id="4" data-name="4">Delete</button></td>
+                     		<td><button class='btn btn-default' id='changeBtn' data-id="4">Change</button></td>
                      	</tr>
                     </tbody>
                 </table>   
