@@ -6,6 +6,7 @@
 <script src="./res/js/jquery.js" type="text/javascript"></script>
 <script src="./res/js/jquery-ui.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="./res/css/jquery-ui.min.css">
+<link rel="stylesheet" href="./res/css/jquery-ui.structure.min.css">
 <link
 	href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap">
@@ -56,10 +57,24 @@ $(document).ready(function() {
 			var id = $(this).attr("data-id");
 			var name = $(this).attr("data-name");
 			
-			$("#deleteTitle").html("Delete User -"+name+"-");
+			$("#deleteTitle").html("Delete Movie -"+name+"-?");
 			$("#delete-id").val(id);
 			$("#dialog_delete").dialog("open");
 		});
+	
+	$("#deleteTrue").click(function() {
+		var movie = {
+				id:$("#delete-id").val()
+		}
+		var tableID = "#tableRow_"+$("#delete-id").val();
+		
+		$("#dialog_delete").dialog("close");
+		$(tableID).fadeOut('slow');
+	});
+	
+	$("#deleteFalse").click(function() {
+		$("#dialog_delete").dialog("close");
+	});
 	
 	//Realtime Search function of Table
     var activeSystemClass = $('.list-group-item.active');
