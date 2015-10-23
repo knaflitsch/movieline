@@ -20,6 +20,7 @@ var pointer = 0;
 $(document).ready(function() {
 	$('.selectpicker').selectpicker();
 	
+	
 	//Glyphon Function
 	$("#btnBack").click(function(){
 			pointer = pointer - 5;
@@ -37,8 +38,28 @@ $(document).ready(function() {
 		
 	//Set Up Data
 	$( document ).ready(function() {
-			//loadNormalData();
+			loadNormalData();
 		});
+	
+	//Startup
+	function loadNormalData() {
+		$.ajax({
+			headers : {
+				Accept : 'application/json'
+			},
+			type : 'GET',
+			url : "<%=request.getContextPath()%>/rest/movieDetails/movie/",
+	
+			success : function(data) {
+				alert("YES");
+			},
+	
+			error : function(e) {
+				console.log(e);
+			}
+	
+		});
+	}
 		
 	//Delete Function 
 	$("#dialog_delete").hide();
