@@ -48,7 +48,7 @@ $(document).ready(function() {
 				Accept : 'application/json'
 			},
 			type : 'GET',
-			url : "<%=request.getContextPath()%>/rest/movieDetails/movie/",
+			url : "<%=request.getContextPath()%>/rest/movieDetails/movie",
 	
 			success : function(data) {
 				alert("YES");
@@ -228,6 +228,11 @@ $(document).ready(function() {
             //Lower text for case insensitive
             var rowText = $(val).text().toLowerCase();
             var inputText = $(that).val().toLowerCase();
+            
+            if (hasWhiteSpace(inputText)) {
+				alert("true");
+			}
+            
             if(inputText != '')
             {
                 $('.search-query-sf').remove();
@@ -258,6 +263,10 @@ $(document).ready(function() {
             tableBody.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
         }
     });
+    
+    function hasWhiteSpace(s) {
+    	  return s.indexOf(' ') >= 0;
+    	}
 });
 </script>
 
