@@ -14,77 +14,129 @@
 <script src="res/js/jquery.js" type="text/javascript"></script>
 <script src="res/js/jquery-ui.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="res/css/jquery-ui.min.css">
-<link href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css" rel="stylesheet" id="bootstrap">
-<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+<link
+	href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap">
+<link
+	href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"
+	rel="stylesheet">
 <link href="res/assets/docs.css" rel="stylesheet">
 <link href="res/css/bootstrap.min.css" rel="stylesheet">
 <link href="res/css/carousel.css" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
 
 <script type="text/javascript">
-
-	function hideElements(){
+	function hideElements() {
 		$("#logout").hide();
 	}
 
+	$(function() {
 
-	$(function(){
-		
-		$(document).ready(function(){
+		$(document).ready(function() {
 			login();
 			logout();
 			hideElements();
 		});
-		
-		
+
 		function login() {
-		 	$("#loginBtn").click(function(){
-		 		var un = $("#userName").val();	 		
-		 		var pw = $("#password").val();
-		 		if (un == '' || pw == '') {
-		            $('#userName');
-		            $('#password');
-		            alert("Please fill all fields...!!!!!!");
-		        }else{
-		        	if((un == 'admin') && (pw == '123')){
-		        		alert("Yesssss");
-		        		$("#login").hide();
-		        		$('#logout').show();
-		        		
-		        	} else{
-		        		alert("Noooooo");
-		        	}
-		        }
-		        
-		 	});
-		 	
-		 	
+			$("#loginBtn").click(function() {
+				var un = $("#userName").val();
+				var pw = $("#password").val();
+				if (un == '' || pw == '') {
+					$('#userName');
+					$('#password');
+					alert("Please fill all fields...!!!!!!");
+				} else {
+					if ((un == 'admin') && (pw == '123')) {
+						alert("Yesssss");
+						$("#login").hide();
+						$('#logout').show();
+
+					} else {
+						alert("Noooooo");
+					}
+				}
+
+			});
+
 		}
-		
+
 		function logout() {
-			$("#logoutBtn").click(function(){
+			$("#logoutBtn").click(function() {
 				$("#userName").val("");
 				$("#password").val("");
 				$("#login").show();
-        		$('#logout').hide();
-        		alert("tschau");
+				$('#logout').hide();
+				alert("tschau");
 			});
 		}
 	});
-		
 </script>
 </head>
 <body>
 	<div id="login">
-			<h1 class="form-signin-heading text-muted">Sign In</h1>
-			<input id="userName" type="text" class="form-control" name="usr" placeholder="Admin">
-			<input id="password" type="password" class="form-control" name="pword" placeholder="Password" required="">
-			<button id="loginBtn"class="btn btn-lg btn-primary btn-block" type="submit">
-				Sign In
-			</button>
+		<h1 class="form-signin-heading text-muted">Sign In</h1>
+		<input id="userName" type="text" class="form-control" name="usr"
+			placeholder="Admin"> <input id="password" type="password"
+			class="form-control" name="pword" placeholder="Password" required="">
+		<button id="loginBtn" class="btn btn-lg btn-primary btn-block"
+			type="submit">Sign In</button>
 	</div>
 	<div id="logout">
-		<button id="logoutBtn"class="btn btn-lg btn-primary btn-block" type="delete">Logout</button>
+		<button id="logoutBtn" class="btn btn-lg btn-primary btn-block"
+			type="delete">Logout</button>
+	</div>
+	<div class="carousel">
+		<br>
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+				<li data-target="#myCarousel" data-slide-to="3"></li>
+			</ol>
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+					HALLO!
+				</div>
+
+				<div class="item">
+					HALLO
+				</div>
+
+				<div class="item">
+					<img src="img_flower.jpg" alt="Flower" width="460" height="345">
+				</div>
+
+				<div class="item">
+					<img src="img_flower2.jpg" alt="Flower" width="460" height="345">
+				</div>
+			</div>
+
+			<!-- Left and right controls -->
+			<a class="left carousel-control" href="#myCarousel" role="button"
+				data-slide="prev"> <span
+				class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a> <a class="right carousel-control" href="#myCarousel" role="button"
+				data-slide="next"> <span
+				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
 	</div>
 </body>
 </html>
