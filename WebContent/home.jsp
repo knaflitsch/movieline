@@ -39,17 +39,15 @@
 </style>
 
 <script type="text/javascript">
-	function hideElements() {
-		$("#logout").hide();
-		
-	}
-
+var movieArr;
+var lastGenre;
 	$(function() {
-
+			
 		$(document).ready(function() {
 			login();
 			logout();
 			hideElements();
+			loadData();
 		});
 
 		function login() {
@@ -74,6 +72,9 @@
 			});
 
 		}
+		function hideElements() {
+			$("#logout").hide();	
+		}
 
 		function logout() {
 			$("#logoutBtn").click(function() {
@@ -82,6 +83,48 @@
 				$("#login").show();
 				$('#logout').hide();
 				alert("tschau");
+			});
+		}
+		
+
+		
+		function loadData(){
+			alert("hello");
+			$.ajax({
+				headers : {
+					Accept : 'application/json'
+				},
+				type : 'Get',
+				url : 'http://10.115.1.7:8080/REST_MovieLine/rest/movieDetails/movie/',
+				success : function(data) {
+					var html = 
+						+"<div class='item' >"
+						+"<div id='action' class='genre'>"
+						+"<h3 class='title'>"
+						+movieArr.genre+"<span class='label label-success pull-right'></span>"
+						+"</h3>"
+						+"<div class='list-group'>";
+						
+					movieArr = data.movie;
+					lastGenre;
+					for (i = 0; i < movieArr.length; i++) {
+						lastGenre = movieArr.genre;
+						while(lastGenre == movieArr.genre) {
+							html = html + "<a href='#' class='list-group-item'>"
+							+"<span class='truncate pull-left' id='filmTitle'>"+movieArr.title+"</span><span class='badge'>14views</span></a></div></div></div>";
+						}
+						lastGenre = movieArr.genre;
+						i = movieArr.length;
+					}
+					//html = html + "</tr>";
+					$("#data").html(html);
+	
+					//console.log(data);
+	
+				},
+				error : function(e) {
+					console.log(e);
+				}
 			});
 		}
 	});
@@ -110,94 +153,8 @@
 			</ol>
 
 			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox">
-				<div class="item active">
-					<div id="action" class="genre">
-						<h3 class="title ">
-							Action <span class="label label-success pull-right">360
-								Articles</span>
-						</h3>
-						<div class="list-group">
-							<a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 1</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 2</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 3</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 4</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 5</span><span class="badge">14
-									views</span></a>
-						</div>
-					</div>
-				</div>
+			<div class="carousel-inner" role="listbox" id="data">
 
-				<div class="item">
-					<div id="thriller" class="genre">
-						<h3 class="title ">
-							Thriller <span class="label label-success pull-right">360
-								Articles</span>
-						</h3>
-						<div class="list-group">
-							<a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 1</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 2</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 3</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 4</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 5</span><span class="badge">14
-									views</span></a>
-						</div>
-					</div>
-				</div>
-
-				<div class="item">
-					<div id="adventure" class="genre">
-						<h3 class="title ">
-							Abenteuer <span class="label label-success pull-right">360
-								Articles</span>
-						</h3>
-						<div class="list-group">
-							<a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 1</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 2</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 3</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 4</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 5</span><span class="badge">14
-									views</span></a>
-						</div>
-					</div>
-				</div>
-
-				<div class="item">
-					<div id="comedy" class="genre">
-						<h3 class="title ">
-							Comedy <span class="label label-success pull-right">360
-								Articles</span>
-						</h3>
-						<div class="list-group">
-							<a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 1</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 2</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 3</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 4</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 5</span><span class="badge">14
-									views</span></a>
-						</div>
-					</div>
-				</div>
 			</div>
 
 			<!-- Left and right controls -->
