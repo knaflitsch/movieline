@@ -86,5 +86,28 @@
 	<div id="logout">
 		<button id="logoutBtn"class="btn btn-lg btn-primary btn-block" type="delete">Logout</button>
 	</div>
+	<div class="menu">
+		<div class="col-md-6 list-category text-success">
+			<h3 class="title ">
+				Action <span class="label label-success pull-right">360
+					Articles</span>
+			</h3>
+			<div class="list-group">
+				<a href="#" class="list-group-item"><span
+					class="truncate pull-left">Film 1</span><span class="badge">14
+						views</span></a> <a href="#" class="list-group-item"><span
+					class="truncate pull-left">Film 2</span><span class="badge">14
+						views</span></a> <a href="#" class="list-group-item"><span
+					class="truncate pull-left">Film 3</span><span class="badge">14
+						views</span></a> <a href="#" class="list-group-item"><span
+					class="truncate pull-left">Film 4</span><span class="badge">14
+						views</span></a> <a href="#" class="list-group-item"><span
+					class="truncate pull-left">Film 5</span><span class="badge">14
+						views</span></a>
+			</div>
+			<a href="#" class="btn btn-success btn-outline">View All</a>
+			<hr>
+		</div>
+	</div>
 </body>
 </html>
