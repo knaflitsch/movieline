@@ -41,7 +41,7 @@
 <script type="text/javascript">
 	function hideElements() {
 		$("#logout").hide();
-
+		
 	}
 
 	$(function() {
@@ -88,6 +88,7 @@
 </script>
 </head>
 <body>
+<<<<<<< HEAD
 
 	<nav class="navbar navbar-default">
 	<div class="container-fluid">
@@ -115,6 +116,28 @@
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->
+=======
+	<div id="login">
+		<h1 class="form-signin-heading text-muted">Home</h1>
+		<input id="userName" type="text" class="form-control" name="usr" placeholder="Admin"> 
+		<input id="password" type="password" class="form-control" name="pword" placeholder="Password" required="">
+		<button id="loginBtn" class="btn btn-lg btn-primary" type="submit">Sign In</button>
+	</div>
+	<div id="logout">
+		<button id="logoutBtn" class="btn btn-lg btn-primary"
+			type="delete">Logout</button>
+	</div>
+	<div class="carousel">
+		<br>
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+				<li data-target="#myCarousel" data-slide-to="3"></li>
+			</ol>
+>>>>>>> 77145cd62841a49ee73030d49fbd99c4f1b0e4b5
 
 		<div class="carousel">
 			<br>
