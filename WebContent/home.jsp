@@ -39,16 +39,13 @@
 </style>
 
 <script type="text/javascript">
-<<<<<<< HEAD
 var movieArr;
 var lastGenre;
-=======
 	function hideElements() {
 		$("#logout").hide();
 
 	}
 
->>>>>>> 083e2c38831fcd0dc8b786cc2432f3b1d27bb5ff
 	$(function() {
 			
 		$(document).ready(function() {
