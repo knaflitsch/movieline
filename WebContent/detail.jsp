@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Detail</title>
+<title>Dreier der Hydrapenis</title>
 <script src="res/js/jquery.js" type="text/javascript"></script>
 <script src="res/js/jquery-ui.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="res/css/jquery-ui.min.css">
@@ -23,6 +23,7 @@ $(function(){
 	
 	$(document).ready(function(){
 		detail();
+		
 	});
 	
 	
