@@ -229,7 +229,7 @@
 					<span class="sr-only">Next</span>
 				</a>
 			</div>
-			<div id="footer">© Team Fenster and Sam</div>
+			<div id="footer">© </div>
 		</div>
 </body>
 </html>
