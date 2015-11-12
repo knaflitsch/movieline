@@ -95,7 +95,7 @@
 		<button id="loginBtn" class="btn btn-lg btn-primary" type="submit">Sign In</button>
 	</div>
 	<div id="logout">
-		<button id="logoutBtn" class="btn btn-lg btn-primary btn-block"
+		<button id="logoutBtn" class="btn btn-lg btn-primary"
 			type="delete">Logout</button>
 	</div>
 	<div class="carousel">
@@ -210,6 +210,9 @@
 				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 				<span class="sr-only">Next</span>
 			</a>
+		</div>
+		<div id="footer">
+			© Team Fenster
 		</div>
 	</div>
 
