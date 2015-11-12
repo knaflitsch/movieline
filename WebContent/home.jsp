@@ -39,8 +39,16 @@
 </style>
 
 <script type="text/javascript">
+<<<<<<< HEAD
 var movieArr;
 var lastGenre;
+=======
+	function hideElements() {
+		$("#logout").hide();
+
+	}
+
+>>>>>>> 083e2c38831fcd0dc8b786cc2432f3b1d27bb5ff
 	$(function() {
 			
 		$(document).ready(function() {
@@ -131,16 +139,39 @@ var lastGenre;
 </script>
 </head>
 <body>
-	<div id="login">
-		<h1 class="form-signin-heading text-muted">Home</h1>
-		<input id="userName" type="text" class="form-control" name="usr" placeholder="Admin"> 
-		<input id="password" type="password" class="form-control" name="pword" placeholder="Password" required="">
-		<button id="loginBtn" class="btn btn-lg btn-primary" type="submit">Sign In</button>
+	<div id="navbar" class="navbar navbar-default">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">LOGO</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="#"> <input id="userName" type="text"
+						class="form-control" name="usr" placeholder="Admin">
+				</a></li>
+				<li><a href="#"><input id="password" type="password"
+						class="form-control" name="pword" placeholder="Password"
+						required=""> </a></li>
+				<li><a href="#">
+						<button id="loginBtn" type="submit">Sign In</button>
+				</a></li>				
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#">Link</a></li>
+			</ul>
+		</div>
 	</div>
-	<div id="logout">
-		<button id="logoutBtn" class="btn btn-lg btn-primary btn-block"
-			type="delete">Logout</button>
-	</div>
+
 	<div class="carousel">
 		<br>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -156,6 +187,8 @@ var lastGenre;
 			<div class="carousel-inner" role="listbox" id="data">
 
 			</div>
+			<div id="footer">©</div>
+
 
 			<!-- Left and right controls -->
 			<a class="left carousel-control" href="#myCarousel" role="button"
@@ -168,7 +201,7 @@ var lastGenre;
 				<span class="sr-only">Next</span>
 			</a>
 		</div>
+		<div id="footer">© Team Fenster and Sam</div>
 	</div>
-
 </body>
 </html>
