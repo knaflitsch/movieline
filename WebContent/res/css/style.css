@@ -27,7 +27,7 @@
 	border-color: #DBDBDB;
 	font-size: 12px;
 	color: black;
-	background-color: #969696;
+	background-color: #c0c0c0;
 	height: 70px;
 	text-align: center;
 	font-weight: bold;
@@ -36,4 +36,7 @@
 	width: 100%;
 	border-top-style: solid;
 }
-
+#navbar{
+	border-bottom-style: solid;
+	border-color: #DBDBDB;
+}
