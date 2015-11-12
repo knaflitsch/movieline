@@ -105,8 +105,15 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><a href="#">Link</a></li>
-				<li><a href="#">Link</a></li>
+				<li><a href="#"> <input id="userName" type="text"
+						class="form-control" name="usr" placeholder="Admin">
+				</a></li>
+				<li><a href="#"><input id="password" type="password"
+						class="form-control" name="pword" placeholder="Password"
+						required=""> </a></li>
+				<li><a href="#">
+						<button id="loginBtn" type="submit">Sign In</button>
+				</a></li>				
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#">Link</a></li>
@@ -215,9 +222,8 @@
 					</div>
 				</div>
 			</div>
-<<<<<<< HEAD
-			<div id="footer">© </div>
-=======
+			<div id="footer">©</div>
+
 
 			<!-- Left and right controls -->
 			<a class="left carousel-control" href="#myCarousel" role="button"
@@ -229,7 +235,6 @@
 				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 				<span class="sr-only">Next</span>
 			</a>
->>>>>>> f3aa8daa0cfed7c04d6dde5a8634e881893a5f27
 		</div>
 		<div id="footer">© Team Fenster and Sam</div>
 	</div>
