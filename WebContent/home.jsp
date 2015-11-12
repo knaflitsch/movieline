@@ -105,6 +105,11 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
+
+				<li><a href="#">   </a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+
 				<li><a href="#"> <input id="userName" type="text"
 						class="form-control" name="usr" placeholder="Admin">
 				</a></li>
@@ -113,10 +118,7 @@
 						required=""> </a></li>
 				<li><a href="#">
 						<button id="loginBtn" type="submit">Sign In</button>
-				</a></li>				
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Link</a></li>
+				</a></li>
 			</ul>
 		</div>
 	</div>
