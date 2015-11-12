@@ -88,6 +88,7 @@
 </script>
 </head>
 <body>
+<<<<<<< HEAD
 
 	<nav class="navbar navbar-default">
 	<div class="container-fluid">
@@ -138,6 +139,18 @@
 		</div>
 		<!-- /.navbar-collapse -->
 	
+=======
+	<div id="login">
+		<h1 class="form-signin-heading text-muted">Home</h1>
+		<input id="userName" type="text" class="form-control" name="usr" placeholder="Admin"> 
+		<input id="password" type="password" class="form-control" name="pword" placeholder="Password" required="">
+		<button id="loginBtn" class="btn btn-lg btn-primary" type="submit">Sign In</button>
+	</div>
+	<div id="logout">
+		<button id="logoutBtn" class="btn btn-lg btn-primary"
+			type="delete">Logout</button>
+	</div>
+>>>>>>> e7a465a508b2b82ad19b124bbe3d763c3dcef6b1
 	<div class="carousel">
 		<br>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -250,6 +263,9 @@
 				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 				<span class="sr-only">Next</span>
 			</a>
+		</div>
+		<div id="footer">
+			© Team Fenster
 		</div>
 	</div>
 
