@@ -1,0 +1,20 @@
+.genre {
+	width: 700px;
+	margin: auto;
+	height: 450px;
+}
+.list-group-item{
+	height: 50px;
+}
+#carousel{
+	height: 750px;
+}
+#userName{
+	width:200px;
+}
+#password{
+	width:200px;
+}
+#loginBtn{
+	widht:200px;
+}

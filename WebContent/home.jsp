@@ -21,23 +21,27 @@
 	href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"
 	rel="stylesheet">
 <link href="res/assets/docs.css" rel="stylesheet">
+<link href="res/css/style.css" rel="stylesheet">
 <link href="res/css/bootstrap.min.css" rel="stylesheet">
 <link href="res/css/carousel.css" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <style>
-  .carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-      width: 70%;
-      margin: auto;
-  }
-  </style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+	width: 70%;
+	margin: auto;
+}
+</style>
 
 <script type="text/javascript">
 	function hideElements() {
 		$("#logout").hide();
+		
 	}
 
 	$(function() {
@@ -85,12 +89,10 @@
 </head>
 <body>
 	<div id="login">
-		<h1 class="form-signin-heading text-muted">Sign In</h1>
-		<input id="userName" type="text" class="form-control" name="usr"
-			placeholder="Admin"> <input id="password" type="password"
-			class="form-control" name="pword" placeholder="Password" required="">
-		<button id="loginBtn" class="btn btn-lg btn-primary btn-block"
-			type="submit">Sign In</button>
+		<h1 class="form-signin-heading text-muted">Home</h1>
+		<input id="userName" type="text" class="form-control" name="usr" placeholder="Admin"> 
+		<input id="password" type="password" class="form-control" name="pword" placeholder="Password" required="">
+		<button id="loginBtn" class="btn btn-lg btn-primary" type="submit">Sign In</button>
 	</div>
 	<div id="logout">
 		<button id="logoutBtn" class="btn btn-lg btn-primary btn-block"
@@ -110,19 +112,91 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					HALLO!
+					<div id="action" class="genre">
+						<h3 class="title ">
+							Action <span class="label label-success pull-right">360
+								Articles</span>
+						</h3>
+						<div class="list-group">
+							<a href="#" class="list-group-item"><span
+								class="truncate pull-left">Film 1</span><span class="badge">14
+									views</span></a> <a href="#" class="list-group-item"><span
+								class="truncate pull-left">Film 2</span><span class="badge">14
+									views</span></a> <a href="#" class="list-group-item"><span
+								class="truncate pull-left">Film 3</span><span class="badge">14
+									views</span></a> <a href="#" class="list-group-item"><span
+								class="truncate pull-left">Film 4</span><span class="badge">14
+									views</span></a> <a href="#" class="list-group-item"><span
+								class="truncate pull-left">Film 5</span><span class="badge">14
+									views</span></a>
+						</div>
+					</div>
 				</div>
 
 				<div class="item">
-					HALLO
+					<div id="thriller" class="genre">
+						<h3 class="title ">
+							Thriller <span class="label label-success pull-right">360
+								Articles</span>
+						</h3>
+						<div class="list-group">
+							<a href="#" class="list-group-item"><span
+								class="truncate pull-left">Film 1</span><span class="badge">14
+									views</span></a> <a href="#" class="list-group-item"><span
+								class="truncate pull-left">Film 2</span><span class="badge">14
+									views</span></a> <a href="#" class="list-group-item"><span
+								class="truncate pull-left">Film 3</span><span class="badge">14
+									views</span></a> <a href="#" class="list-group-item"><span
+								class="truncate pull-left">Film 4</span><span class="badge">14
+									views</span></a> <a href="#" class="list-group-item"><span
+								class="truncate pull-left">Film 5</span><span class="badge">14
+									views</span></a>
+						</div>
+					</div>
 				</div>
 
 				<div class="item">
-					<img src="img_flower.jpg" alt="Flower" width="460" height="345">
+					<div id="adventure" class="genre">
+						<h3 class="title ">
+							Abenteuer <span class="label label-success pull-right">360
+								Articles</span>
+						</h3>
+						<div class="list-group">
+							<a href="#" class="list-group-item"><span
+								class="truncate pull-left">Film 1</span><span class="badge">14
+									views</span></a> <a href="#" class="list-group-item"><span
+								class="truncate pull-left">Film 2</span><span class="badge">14
+									views</span></a> <a href="#" class="list-group-item"><span
+								class="truncate pull-left">Film 3</span><span class="badge">14
+									views</span></a> <a href="#" class="list-group-item"><span
+								class="truncate pull-left">Film 4</span><span class="badge">14
+									views</span></a> <a href="#" class="list-group-item"><span
+								class="truncate pull-left">Film 5</span><span class="badge">14
+									views</span></a>
+						</div>
+					</div>
 				</div>
 
 				<div class="item">
-					<img src="img_flower2.jpg" alt="Flower" width="460" height="345">
+					<div id="comedy" class="genre">
+						<h3 class="title ">
+							Comedy <span class="label label-success pull-right">360
+								Articles</span>
+						</h3>
+						<div class="list-group">
+							<a href="#" class="list-group-item"><span
+								class="truncate pull-left">Film 1</span><span class="badge">14
+									views</span></a> <a href="#" class="list-group-item"><span
+								class="truncate pull-left">Film 2</span><span class="badge">14
+									views</span></a> <a href="#" class="list-group-item"><span
+								class="truncate pull-left">Film 3</span><span class="badge">14
+									views</span></a> <a href="#" class="list-group-item"><span
+								class="truncate pull-left">Film 4</span><span class="badge">14
+									views</span></a> <a href="#" class="list-group-item"><span
+								class="truncate pull-left">Film 5</span><span class="badge">14
+									views</span></a>
+						</div>
+					</div>
 				</div>
 			</div>
 
@@ -138,28 +212,6 @@
 			</a>
 		</div>
 	</div>
-	<div class="menu">
-		<div class="col-md-6 list-category text-success">
-			<h3 class="title ">
-				Action <span class="label label-success pull-right">360
-					Articles</span>
-			</h3>
-			<div class="list-group">
-				<a href="#" class="list-group-item"><span
-					class="truncate pull-left">Film 1</span><span class="badge">14
-						views</span></a> <a href="#" class="list-group-item"><span
-					class="truncate pull-left">Film 2</span><span class="badge">14
-						views</span></a> <a href="#" class="list-group-item"><span
-					class="truncate pull-left">Film 3</span><span class="badge">14
-						views</span></a> <a href="#" class="list-group-item"><span
-					class="truncate pull-left">Film 4</span><span class="badge">14
-						views</span></a> <a href="#" class="list-group-item"><span
-					class="truncate pull-left">Film 5</span><span class="badge">14
-						views</span></a>
-			</div>
-			<a href="#" class="btn btn-success btn-outline">View All</a>
-			<hr>
-		</div>
-	</div>
+
 </body>
 </html>
