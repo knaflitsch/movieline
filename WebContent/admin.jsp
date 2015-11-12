@@ -62,7 +62,7 @@ $(document).ready(function() {
 	}
 		
 	//Delete Function 
-	$("#dialog_delete").hide();
+ 	$("#dialog_delete").hide();
 		
 	$("#dialog_delete").dialog({
 		autoOpen: false,
@@ -75,7 +75,7 @@ $(document).ready(function() {
 		duration: 500
 		}
 		});
-		
+		 
 	$(document).on("click","#deleteBtn", function(){
 			var id = $(this).attr("data-id");
 			var name = $(this).attr("data-name");
@@ -229,9 +229,9 @@ $(document).ready(function() {
             var rowText = $(val).text().toLowerCase();
             var inputText = $(that).val().toLowerCase();
             
-            if (hasWhiteSpace(inputText)) {
+/*             if (hasWhiteSpace(inputText)) {
 				alert("true");
-			}
+			} */
             
             if(inputText != '')
             {
@@ -264,9 +264,9 @@ $(document).ready(function() {
         }
     });
     
-    function hasWhiteSpace(s) {
+/*     function hasWhiteSpace(s) {
     	  return s.indexOf(' ') >= 0;
-    	}
+    	} */
 });
 </script>
 
