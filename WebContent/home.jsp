@@ -88,7 +88,6 @@
 </script>
 </head>
 <body>
-<<<<<<< HEAD
 
 	<nav class="navbar navbar-default">
 	<div class="container-fluid">
@@ -110,164 +109,127 @@
 			<ul class="nav navbar-nav">
 				<li><a href="#">Link</a></li>
 				<li><a href="#">Link</a></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">Dropdown <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">Separated link</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">One more separated link</a></li>
-					</ul></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#">Link</a></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">Dropdown <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">Separated link</a></li>
-					</ul></li>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->
-	
-=======
-	<div id="login">
-		<h1 class="form-signin-heading text-muted">Home</h1>
-		<input id="userName" type="text" class="form-control" name="usr" placeholder="Admin"> 
-		<input id="password" type="password" class="form-control" name="pword" placeholder="Password" required="">
-		<button id="loginBtn" class="btn btn-lg btn-primary" type="submit">Sign In</button>
-	</div>
-	<div id="logout">
-		<button id="logoutBtn" class="btn btn-lg btn-primary"
-			type="delete">Logout</button>
-	</div>
->>>>>>> e7a465a508b2b82ad19b124bbe3d763c3dcef6b1
-	<div class="carousel">
-		<br>
-		<div id="myCarousel" class="carousel slide" data-ride="carousel">
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
-				<li data-target="#myCarousel" data-slide-to="3"></li>
-			</ol>
 
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox">
-				<div class="item active">
-					<div id="action" class="genre">
-						<h3 class="title ">
-							Action <span class="label label-success pull-right">360
-								Articles</span>
-						</h3>
-						<div class="list-group">
-							<a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 1</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 2</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 3</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 4</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 5</span><span class="badge">14
-									views</span></a>
+		<div class="carousel">
+			<br>
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+					<li data-target="#myCarousel" data-slide-to="3"></li>
+				</ol>
+
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
+						<div id="action" class="genre">
+							<h3 class="title ">
+								Action <span class="label label-success pull-right">360
+									Articles</span>
+							</h3>
+							<div class="list-group">
+								<a href="#" class="list-group-item"><span
+									class="truncate pull-left">Film 1</span><span class="badge">14
+										views</span></a> <a href="#" class="list-group-item"><span
+									class="truncate pull-left">Film 2</span><span class="badge">14
+										views</span></a> <a href="#" class="list-group-item"><span
+									class="truncate pull-left">Film 3</span><span class="badge">14
+										views</span></a> <a href="#" class="list-group-item"><span
+									class="truncate pull-left">Film 4</span><span class="badge">14
+										views</span></a> <a href="#" class="list-group-item"><span
+									class="truncate pull-left">Film 5</span><span class="badge">14
+										views</span></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="item">
+						<div id="thriller" class="genre">
+							<h3 class="title ">
+								Thriller <span class="label label-success pull-right">360
+									Articles</span>
+							</h3>
+							<div class="list-group">
+								<a href="#" class="list-group-item"><span
+									class="truncate pull-left">Film 1</span><span class="badge">14
+										views</span></a> <a href="#" class="list-group-item"><span
+									class="truncate pull-left">Film 2</span><span class="badge">14
+										views</span></a> <a href="#" class="list-group-item"><span
+									class="truncate pull-left">Film 3</span><span class="badge">14
+										views</span></a> <a href="#" class="list-group-item"><span
+									class="truncate pull-left">Film 4</span><span class="badge">14
+										views</span></a> <a href="#" class="list-group-item"><span
+									class="truncate pull-left">Film 5</span><span class="badge">14
+										views</span></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="item">
+						<div id="adventure" class="genre">
+							<h3 class="title ">
+								Abenteuer <span class="label label-success pull-right">360
+									Articles</span>
+							</h3>
+							<div class="list-group">
+								<a href="#" class="list-group-item"><span
+									class="truncate pull-left">Film 1</span><span class="badge">14
+										views</span></a> <a href="#" class="list-group-item"><span
+									class="truncate pull-left">Film 2</span><span class="badge">14
+										views</span></a> <a href="#" class="list-group-item"><span
+									class="truncate pull-left">Film 3</span><span class="badge">14
+										views</span></a> <a href="#" class="list-group-item"><span
+									class="truncate pull-left">Film 4</span><span class="badge">14
+										views</span></a> <a href="#" class="list-group-item"><span
+									class="truncate pull-left">Film 5</span><span class="badge">14
+										views</span></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="item">
+						<div id="comedy" class="genre">
+							<h3 class="title ">
+								Comedy <span class="label label-success pull-right">360
+									Articles</span>
+							</h3>
+							<div class="list-group">
+								<a href="#" class="list-group-item"><span
+									class="truncate pull-left">Film 1</span><span class="badge">14
+										views</span></a> <a href="#" class="list-group-item"><span
+									class="truncate pull-left">Film 2</span><span class="badge">14
+										views</span></a> <a href="#" class="list-group-item"><span
+									class="truncate pull-left">Film 3</span><span class="badge">14
+										views</span></a> <a href="#" class="list-group-item"><span
+									class="truncate pull-left">Film 4</span><span class="badge">14
+										views</span></a> <a href="#" class="list-group-item"><span
+									class="truncate pull-left">Film 5</span><span class="badge">14
+										views</span></a>
+							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="item">
-					<div id="thriller" class="genre">
-						<h3 class="title ">
-							Thriller <span class="label label-success pull-right">360
-								Articles</span>
-						</h3>
-						<div class="list-group">
-							<a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 1</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 2</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 3</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 4</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 5</span><span class="badge">14
-									views</span></a>
-						</div>
-					</div>
-				</div>
-
-				<div class="item">
-					<div id="adventure" class="genre">
-						<h3 class="title ">
-							Abenteuer <span class="label label-success pull-right">360
-								Articles</span>
-						</h3>
-						<div class="list-group">
-							<a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 1</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 2</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 3</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 4</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 5</span><span class="badge">14
-									views</span></a>
-						</div>
-					</div>
-				</div>
-
-				<div class="item">
-					<div id="comedy" class="genre">
-						<h3 class="title ">
-							Comedy <span class="label label-success pull-right">360
-								Articles</span>
-						</h3>
-						<div class="list-group">
-							<a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 1</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 2</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 3</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 4</span><span class="badge">14
-									views</span></a> <a href="#" class="list-group-item"><span
-								class="truncate pull-left">Film 5</span><span class="badge">14
-									views</span></a>
-						</div>
-					</div>
-				</div>
+				<!-- Left and right controls -->
+				<a class="left carousel-control" href="#myCarousel" role="button"
+					data-slide="prev"> <span
+					class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a> <a class="right carousel-control" href="#myCarousel" role="button"
+					data-slide="next"> <span
+					class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
 			</div>
-
-			<!-- Left and right controls -->
-			<a class="left carousel-control" href="#myCarousel" role="button"
-				data-slide="prev"> <span
-				class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a> <a class="right carousel-control" href="#myCarousel" role="button"
-				data-slide="next"> <span
-				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
+			<div id="footer">© Team Fenster and Sam</div>
 		</div>
-		<div id="footer">
-			© Team Fenster
-		</div>
-	</div>
-
 </body>
 </html>
