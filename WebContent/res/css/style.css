@@ -1,0 +1,45 @@
+body {
+	background-color: #c0c0c0;
+}
+.genre {
+	width: 700px;
+	margin: auto;
+	height: 450px;
+}
+.list-group-item{
+	height: 50px;
+}
+#carousel{
+	height: 750px;
+}
+#userName{
+	width:200px;
+}
+#password{
+	width:200px;
+}
+#loginBtn{
+	widht:200px;
+}
+#logoutBtn{
+	width:200px;
+}
+#footer {
+	padding-top: 10px;
+	border-top-style: solid;
+	border-color: #DBDBDB;
+	font-size: 12px;
+	color: black;
+	background-color: #c0c0c0;
+	height: 70px;
+	text-align: center;
+	font-weight: bold;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	border-top-style: solid;
+}
+#navbar{
+	border-bottom-style: solid;
+	border-color: #DBDBDB;
+}

@@ -21,31 +21,38 @@
 	href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"
 	rel="stylesheet">
 <link href="res/assets/docs.css" rel="stylesheet">
+<link href="res/css/style.css" rel="stylesheet">
 <link href="res/css/bootstrap.min.css" rel="stylesheet">
 <link href="res/css/carousel.css" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <style>
-  .carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-      width: 70%;
-      margin: auto;
-  }
-  </style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+	width: 70%;
+	margin: auto;
+}
+</style>
 
 <script type="text/javascript">
+var movieArr;
+var lastGenre;
 	function hideElements() {
 		$("#logout").hide();
+
 	}
 
 	$(function() {
-
+			
 		$(document).ready(function() {
 			login();
 			logout();
 			hideElements();
+			loadData();
 		});
 
 		function login() {
@@ -70,6 +77,9 @@
 			});
 
 		}
+		function hideElements() {
+			$("#logout").hide();	
+		}
 
 		function logout() {
 			$("#logoutBtn").click(function() {
@@ -80,22 +90,87 @@
 				alert("tschau");
 			});
 		}
+		
+
+		
+		function loadData(){
+			alert("hello");
+			$.ajax({
+				headers : {
+					Accept : 'application/json'
+				},
+				type : 'Get',
+				url : 'http://10.115.1.7:8080/REST_MovieLine/rest/movieDetails/movie/',
+				success : function(data) {
+					var html = 
+						+"<div class='item' >"
+						+"<div id='action' class='genre'>"
+						+"<h3 class='title'>"
+						+movieArr.genre+"<span class='label label-success pull-right'></span>"
+						+"</h3>"
+						+"<div class='list-group'>";
+						
+					movieArr = data.movie;
+					lastGenre;
+					for (i = 0; i < movieArr.length; i++) {
+						lastGenre = movieArr.genre;
+						while(lastGenre == movieArr.genre) {
+							html = html + "<a href='#' class='list-group-item'>"
+							+"<span class='truncate pull-left' id='filmTitle'>"+movieArr.title+"</span><span class='badge'>14views</span></a></div></div></div>";
+						}
+						lastGenre = movieArr.genre;
+						i = movieArr.length;
+					}
+					//html = html + "</tr>";
+					$("#data").html(html);
+	
+					//console.log(data);
+	
+				},
+				error : function(e) {
+					console.log(e);
+				}
+			});
+		}
 	});
 </script>
 </head>
 <body>
-	<div id="login">
-		<h1 class="form-signin-heading text-muted">Sign In</h1>
-		<input id="userName" type="text" class="form-control" name="usr"
-			placeholder="Admin"> <input id="password" type="password"
-			class="form-control" name="pword" placeholder="Password" required="">
-		<button id="loginBtn" class="btn btn-lg btn-primary btn-block"
-			type="submit">Sign In</button>
+	<div id="navbar" class="navbar navbar-default">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">LOGO</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+
+				<li><a href="#">   </a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+
+				<li><a href="#"> <input id="userName" type="text"
+						class="form-control" name="usr" placeholder="Admin">
+				</a></li>
+				<li><a href="#"><input id="password" type="password"
+						class="form-control" name="pword" placeholder="Password"
+						required=""> </a></li>
+				<li><a href="#">
+						<button id="loginBtn" type="submit">Sign In</button>
+				</a></li>
+			</ul>
+		</div>
 	</div>
-	<div id="logout">
-		<button id="logoutBtn" class="btn btn-lg btn-primary btn-block"
-			type="delete">Logout</button>
-	</div>
+
 	<div class="carousel">
 		<br>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -108,23 +183,11 @@
 			</ol>
 
 			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox">
-				<div class="item active">
-					HALLO!
-				</div>
+			<div class="carousel-inner" role="listbox" id="data">
 
-				<div class="item">
-					HALLO
-				</div>
-
-				<div class="item">
-					<img src="img_flower.jpg" alt="Flower" width="460" height="345">
-				</div>
-
-				<div class="item">
-					<img src="img_flower2.jpg" alt="Flower" width="460" height="345">
-				</div>
 			</div>
+			<div id="footer">©</div>
+
 
 			<!-- Left and right controls -->
 			<a class="left carousel-control" href="#myCarousel" role="button"
@@ -137,29 +200,7 @@
 				<span class="sr-only">Next</span>
 			</a>
 		</div>
-	</div>
-	<div class="menu">
-		<div class="col-md-6 list-category text-success">
-			<h3 class="title ">
-				Action <span class="label label-success pull-right">360
-					Articles</span>
-			</h3>
-			<div class="list-group">
-				<a href="#" class="list-group-item"><span
-					class="truncate pull-left">Film 1</span><span class="badge">14
-						views</span></a> <a href="#" class="list-group-item"><span
-					class="truncate pull-left">Film 2</span><span class="badge">14
-						views</span></a> <a href="#" class="list-group-item"><span
-					class="truncate pull-left">Film 3</span><span class="badge">14
-						views</span></a> <a href="#" class="list-group-item"><span
-					class="truncate pull-left">Film 4</span><span class="badge">14
-						views</span></a> <a href="#" class="list-group-item"><span
-					class="truncate pull-left">Film 5</span><span class="badge">14
-						views</span></a>
-			</div>
-			<a href="#" class="btn btn-success btn-outline">View All</a>
-			<hr>
-		</div>
+		<div id="footer">© Team Fenster and Sam</div>
 	</div>
 </body>
 </html>
