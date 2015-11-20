@@ -39,15 +39,15 @@
 </style>
 
 <script type="text/javascript">
-var movieArr;
-var lastGenre;
+	var movieArr;
+	var lastGenre;
 	function hideElements() {
 		$("#logout").hide();
 
 	}
 
 	$(function() {
-			
+
 		$(document).ready(function() {
 			login();
 			logout();
@@ -78,7 +78,7 @@ var lastGenre;
 
 		}
 		function hideElements() {
-			$("#logout").hide();	
+			$("#logout").hide();
 		}
 
 		function logout() {
@@ -90,47 +90,48 @@ var lastGenre;
 				alert("tschau");
 			});
 		}
-		
 
-		
-		function loadData(){
+		function loadData() {
 			alert("hello");
-			$.ajax({
-				headers : {
-					Accept : 'application/json'
-				},
-				type : 'Get',
-				url : 'http://10.115.1.7:8080/REST_MovieLine/rest/movieDetails/movie/',
-				success : function(data) {
-					var html = 
-						+"<div class='item' >"
-						+"<div id='action' class='genre'>"
-						+"<h3 class='title'>"
-						+movieArr.genre+"<span class='label label-success pull-right'></span>"
-						+"</h3>"
-						+"<div class='list-group'>";
-						
-					movieArr = data.movie;
-					lastGenre;
-					for (i = 0; i < movieArr.length; i++) {
-						lastGenre = movieArr.genre;
-						while(lastGenre == movieArr.genre) {
-							html = html + "<a href='#' class='list-group-item'>"
-							+"<span class='truncate pull-left' id='filmTitle'>"+movieArr.title+"</span><span class='badge'>14views</span></a></div></div></div>";
+			$
+					.ajax({
+						headers : {
+							Accept : 'application/json'
+						},
+						type : 'Get',
+						url : 'http://10.115.1.7:8080/Movieline/rest/movieDetails/movie/',
+						success : function(data) {
+							var html = +"<div class='item' >"
+									+ "<div id='action' class='genre'>"
+									+ "<h3 class='title'>"
+									+ movieArr.genre
+									+ "<span class='label label-success pull-right'></span>"
+									+ "</h3>" + "<div class='list-group'>";
+
+							movieArr = data.movie;
+							lastGenre;
+							for (i = 0; i < movieArr.length; i++) {
+								lastGenre = movieArr.genre;
+								while (lastGenre == movieArr.genre) {
+									html = html
+											+ "<a href='#' class='list-group-item'>"
+											+ "<span class='truncate pull-left' id='filmTitle'>"
+											+ movieArr.title
+											+ "</span><span class='badge'>14views</span></a></div></div></div>";
+								}
+								lastGenre = movieArr.genre;
+								i = movieArr.length;
+							}
+							//html = html + "</tr>";
+							$("#data").html(html);
+
+							//console.log(data);
+
+						},
+						error : function(e) {
+							console.log(e);
 						}
-						lastGenre = movieArr.genre;
-						i = movieArr.length;
-					}
-					//html = html + "</tr>";
-					$("#data").html(html);
-	
-					//console.log(data);
-	
-				},
-				error : function(e) {
-					console.log(e);
-				}
-			});
+					});
 		}
 	});
 </script>
@@ -154,7 +155,7 @@ var lastGenre;
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 
-				<li><a href="#">   </a></li>
+				<li><a href="#"> </a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 
@@ -184,7 +185,13 @@ var lastGenre;
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox" id="data">
+				<div class="item active">
+						HALLO
+				</div>
 
+				<div class="item">
+						SERVUS
+				</div>
 			</div>
 			<div id="footer">©</div>
 
