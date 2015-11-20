@@ -191,19 +191,18 @@
 				<div class="content-style-overlay">
 					<span class="icon icon-close">Close the overlay</span>
 					<h2>About Parsley</h2>
-					<p>Gumbo beet greens corn soko endive guato. Dandelion cucumber earthnut pea
-						peanut soko zucchini.</p>
+					<p>Gumbo beet greens corn soko endive guato. Dandelion cucumber
+						eaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaarthnut pea peanut soko zucchini.</p>
 					<p></p>
-					<p>Gumbo beet gokra wakame tomaco. Dandelion cucumber earthnut pea
-						peanut soko zucchini.</p>
+					<p>Gumbo beet gokra wakame tomaco. Dandelion cucumber earthnut
+						pea peanut soko zucchini.</p>
 					<p>Turnip greenchickpea gram corn pea. Brussels sprout
-						coriander water chestnut gounya nuts nori
-						azuki bean chickweed potato bell pepper artichoke.</p>
-					<p>Gumbo beet greens corn soko endive gumarthnut pea
-						peanut soko zucchini.</p>
-					<p>Turnip greens yarrow ricebeanout
-						coriander wath salsify bunya nuts nori
-						azuki bean chickweed potato bell pepper artichoke.</p>
+						coriander water chestnut gounya nuts nori azuki bean chickweed
+						potato bell pepper artichoke.</p>
+					<p>Gumbo beet greens corn soko endive gumarthnut pea peanut
+						soko zucchini.</p>
+					<p>Turnip greens yarrow ricebeanout coriander wath salsify
+						bunya nuts nori azuki bean chickweed potato bell pepper artichoke.</p>
 				</div>
 			</div>
 		</div>
@@ -294,39 +293,26 @@
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox" id="data">
-<<<<<<< HEAD
-				<div class="item active">HALLO</div>
-=======
-<<<<<<< HEAD
 				<div class="item active">HALLO</div>
 
 				<div class="item">SERVUS</div>
 			</div>
-=======
-				<div class="item active">
-						HALLO
-				</div>
->>>>>>> 99d44bbffdd18dfede56589c33d4c1a0cea761b4
-
-				<div class="item">SERVUS</div>
-			</div>
-
->>>>>>> 55aa949b2ec161f74ebdf66cba5d8f26ca18cdbe
-			<div id="footer">©</div>
-
-
-			<!-- Left and right controls -->
-			<a class="left carousel-control" href="#myCarousel" role="button"
-				data-slide="prev"> <span
-				class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a> <a class="right carousel-control" href="#myCarousel" role="button"
-				data-slide="next"> <span
-				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
 		</div>
-		<div id="footer">© Team Fenster and Sam</div>
+
+		<div id="footer">©</div>
+
+
+		<!-- Left and right controls -->
+		<a class="left carousel-control" href="#myCarousel" role="button"
+			data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"
+			aria-hidden="true"></span> <span class="sr-only">Previous</span>
+		</a> <a class="right carousel-control" href="#myCarousel" role="button"
+			data-slide="next"> <span
+			class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+	<div id="footer">© Team Fenster and Sam</div>
 	</div>
 </body>
 </html>
