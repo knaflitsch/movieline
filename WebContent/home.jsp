@@ -185,7 +185,11 @@
 			</ol>
 
 			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox" id="data"></div>
+			<div class="carousel-inner" role="listbox" id="data">
+				<div class="item active">HALLO</div>
+
+				<div class="item">SERVUS</div>
+			</div>
 			<div id="footer">©</div>
 
 
