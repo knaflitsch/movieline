@@ -96,16 +96,16 @@
 			$
 					.ajax({
 						headers : {
-<<<<<<< HEAD
+
 							Accept : 'application/json'
 						},
 						type : 'Get',
-=======
+
 							Accept : 'application/json',
 						},
 						contentType : 'application/json',
 						type : 'GET',
->>>>>>> b01fb2570b35e925250b7c71edc6bc073d3f5c93
+
 						url : 'http://10.115.1.7:8080/Movieline/rest/movieDetails/movie/',
 						success : function(data) {
 							var html = +"<div class='item' >"
@@ -192,12 +192,12 @@
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox" id="data">
-<<<<<<< HEAD
+
 				<div class="item active">HALLO</div>
 
 				<div class="item">SERVUS</div>
 			</div>
-=======
+
 				<div class="item active">
 						HALLO
 				</div>
@@ -207,7 +207,6 @@
 				</div>
 			</div>
 
->>>>>>> 55aa949b2ec161f74ebdf66cba5d8f26ca18cdbe
 			<div id="footer">©</div>
 
 
