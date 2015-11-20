@@ -191,7 +191,6 @@
 			</ol>
 
 			<!-- Wrapper for slides -->
-<<<<<<< HEAD
 			<div class="carousel-inner" role="listbox" id="data">
 				<div class="item active">
 						HALLO
@@ -201,9 +200,7 @@
 						SERVUS
 				</div>
 			</div>
-=======
-			<div class="carousel-inner" role="listbox" id="data"></div>
->>>>>>> b01fb2570b35e925250b7c71edc6bc073d3f5c93
+
 			<div id="footer">©</div>
 
 
