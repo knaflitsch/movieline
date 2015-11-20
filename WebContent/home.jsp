@@ -294,11 +294,24 @@
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox" id="data">
+<<<<<<< HEAD
+				<div class="item active">HALLO</div>
+=======
+<<<<<<< HEAD
 				<div class="item active">HALLO</div>
 
 				<div class="item">SERVUS</div>
 			</div>
+=======
+				<div class="item active">
+						HALLO
+				</div>
+>>>>>>> 99d44bbffdd18dfede56589c33d4c1a0cea761b4
 
+				<div class="item">SERVUS</div>
+			</div>
+
+>>>>>>> 55aa949b2ec161f74ebdf66cba5d8f26ca18cdbe
 			<div id="footer">©</div>
 
 
