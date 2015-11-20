@@ -12,6 +12,10 @@
 <meta name="author" content="">
 <link rel="icon" href="res/images/thet.png">
 <script src="res/js/jquery.js" type="text/javascript"></script>
+<script src="res/js/classie.js" type="text/javascript"></script>
+<script src="res/js/modernizr.custom.js" type="text/javascript"></script>
+<script src="res/js/uiMorphingButton_fixed.js" type="text/javascript"></script>
+<script src="res/js/uiMorphingButton_inflow.js" type="text/javascript"></script>
 <script src="res/js/jquery-ui.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="res/css/jquery-ui.min.css">
 <link
@@ -24,6 +28,10 @@
 <link href="res/css/style.css" rel="stylesheet">
 <link href="res/css/bootstrap.min.css" rel="stylesheet">
 <link href="res/css/carousel.css" rel="stylesheet">
+<link href="res/css/component.css" rel="stylesheet">
+<link href="res/css/content.css" rel="stylesheet">
+<link href="res/css/demo.css" rel="stylesheet">
+<link href="res/css/normalize.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -96,16 +104,25 @@
 			$
 					.ajax({
 						headers : {
+<<<<<<< HEAD
 
 							Accept : 'application/json'
 						},
 						type : 'Get',
 
+=======
+							Accept : 'application/json'
+						},
+						type : 'Get',
+>>>>>>> f607956576f1fcf27e9cba972dcbc2191f2d122c
 							Accept : 'application/json',
 						},
 						contentType : 'application/json',
 						type : 'GET',
+<<<<<<< HEAD
 
+=======
+>>>>>>> f607956576f1fcf27e9cba972dcbc2191f2d122c
 						url : 'http://10.115.1.7:8080/Movieline/rest/movieDetails/movie/',
 						success : function(data) {
 							var html = +"<div class='item' >"
@@ -178,7 +195,103 @@
 			</ul>
 		</div>
 	</div>
+	<section>
+	<div class="morph-button morph-button-overlay morph-button-fixed">
+		<button type="button">More Info</button>
+		<div class="morph-content">
+			<div>
+				<div class="content-style-overlay">
+					<span class="icon icon-close">Close the overlay</span>
+					<h2>About Parsley</h2>
+					<p>Gumbo beet greens corn soko endive guato. Dandelion cucumber
+						eaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaarthnut pea peanut soko zucchini.</p>
+					<p></p>
+					<p>Gumbo beet gokra wakame tomaco. Dandelion cucumber earthnut
+						pea peanut soko zucchini.</p>
+					<p>Turnip greenchickpea gram corn pea. Brussels sprout
+						coriander water chestnut gounya nuts nori azuki bean chickweed
+						potato bell pepper artichoke.</p>
+					<p>Gumbo beet greens corn soko endive gumarthnut pea peanut
+						soko zucchini.</p>
+					<p>Turnip greens yarrow ricebeanout coriander wath salsify
+						bunya nuts nori azuki bean chickweed potato bell pepper artichoke.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- morph-button --> </section>
+	</div>
+	<!-- /container -->
+	<script src="res/js/classie.js"></script>
+	<script src="res/js/uiMorphingButton_fixed.js"></script>
+	<script>
+			(function() {	
+				var docElem = window.document.documentElement, didScroll, scrollPosition;
 
+				// trick to prevent scrolling when opening/closing button
+				function noScrollFn() {
+					window.scrollTo( scrollPosition ? scrollPosition.x : 0, scrollPosition ? scrollPosition.y : 0 );
+				}
+
+				function noScroll() {
+					window.removeEventListener( 'scroll', scrollHandler );
+					window.addEventListener( 'scroll', noScrollFn );
+				}
+
+				function scrollFn() {
+					window.addEventListener( 'scroll', scrollHandler );
+				}
+
+				function canScroll() {
+					window.removeEventListener( 'scroll', noScrollFn );
+					scrollFn();
+				}
+
+				function scrollHandler() {
+					if( !didScroll ) {
+						didScroll = true;
+						setTimeout( function() { scrollPage(); }, 60 );
+					}
+				};
+
+				function scrollPage() {
+					scrollPosition = { x : window.pageXOffset || docElem.scrollLeft, y : window.pageYOffset || docElem.scrollTop };
+					didScroll = false;
+				};
+
+				scrollFn();
+				
+				var el = document.querySelector( '.morph-button' );
+				
+				new UIMorphingButton( el, {
+					closeEl : '.icon-close',
+					onBeforeOpen : function() {
+						// don't allow to scroll
+						noScroll();
+					},
+					onAfterOpen : function() {
+						// can scroll again
+						canScroll();
+						// add class "noscroll" to body
+						classie.addClass( document.body, 'noscroll' );
+						// add scroll class to main el
+						classie.addClass( el, 'scroll' );
+					},
+					onBeforeClose : function() {
+						// remove class "noscroll" to body
+						classie.removeClass( document.body, 'noscroll' );
+						// remove scroll class from main el
+						classie.removeClass( el, 'scroll' );
+						// don't allow to scroll
+						noScroll();
+					},
+					onAfterClose : function() {
+						// can scroll again
+						canScroll();
+					}
+				} );
+			})();
+		</script>
 	<div class="carousel">
 		<br>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -192,11 +305,15 @@
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox" id="data">
+<<<<<<< HEAD
 
+=======
+>>>>>>> f607956576f1fcf27e9cba972dcbc2191f2d122c
 				<div class="item active">HALLO</div>
 
 				<div class="item">SERVUS</div>
 			</div>
+<<<<<<< HEAD
 
 				<div class="item active">
 						HALLO
@@ -208,20 +325,24 @@
 			</div>
 
 			<div id="footer">©</div>
-
-
-			<!-- Left and right controls -->
-			<a class="left carousel-control" href="#myCarousel" role="button"
-				data-slide="prev"> <span
-				class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a> <a class="right carousel-control" href="#myCarousel" role="button"
-				data-slide="next"> <span
-				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
+=======
 		</div>
-		<div id="footer">© Team Fenster and Sam</div>
+
+		<div id="footer">©</div>
+>>>>>>> f607956576f1fcf27e9cba972dcbc2191f2d122c
+
+
+		<!-- Left and right controls -->
+		<a class="left carousel-control" href="#myCarousel" role="button"
+			data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"
+			aria-hidden="true"></span> <span class="sr-only">Previous</span>
+		</a> <a class="right carousel-control" href="#myCarousel" role="button"
+			data-slide="next"> <span
+			class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+	<div id="footer">© Team Fenster and Sam</div>
 	</div>
 </body>
 </html>
