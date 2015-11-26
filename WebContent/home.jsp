@@ -301,17 +301,41 @@
 					}
 				} );
 
+<<<<<<< HEAD
 				document.getElementById( 'terms' ).addEventListener( 'change', function() {
 					UIBtnn.toggle();
 				} );
 			})();
 		</script></div>
+=======
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox" id="data">
+<<<<<<< HEAD
+
+=======
+>>>>>>> f607956576f1fcf27e9cba972dcbc2191f2d122c
+				<div class="item active">HALLO</div>
+>>>>>>> caf76330440024f4df0747c6439b5a3e16bb8884
 
 				<div class="item">SERVUS</div>
 			</div>
+<<<<<<< HEAD
+
+				<div class="item active">
+						HALLO
+				</div>
+
+				<div class="item">
+						SERVUS
+				</div>
+			</div>
+
+			<div id="footer">©</div>
+=======
 		</div>
 
 		<div id="footer">©</div>
+>>>>>>> f607956576f1fcf27e9cba972dcbc2191f2d122c
 
 
 		<!-- Left and right controls -->

@@ -31,42 +31,40 @@
 	});
 </script>
 <style>
-	#movie {
-		margin-top:100px;
-		margin-left: auto ;
-  		margin-right: auto ;
-		width: 1000px;
-		padding: 20px 20px 20px 20px; 
-		background-color:white;
-	}
-	
-	#pic{
-		width: 100px;
-		heigt:200px;
-		border-style: solid;
-		float: left;
-		margin-right: 10px;
-	}
-	
-	#title{
-		width: 5000;
-		heigt: 50px;
-	}
-	
-	#rightSide{
-		margin-left:10px;
-	}
-	
-	#content {
-		margin-top:50px;
-		margin-left: auto ;
-  		margin-right: auto ;
-		width: 1000px;
-		padding: 20px 20px 20px 20px; 
-		background-color:white;
-	}
-	
-	
+#movie {
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+	padding: 20px 20px 20px 20px;
+	background-color: white;
+}
+
+#pic {
+	width: 100px;
+	heigt: 200px;
+	border-style: solid;
+	float: left;
+	margin-right: 10px;
+}
+
+#title {
+	width: 5000;
+	heigt: 50px;
+}
+
+#rightSide {
+	margin-left: 10px;
+}
+
+#content {
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+	padding: 20px 20px 20px 20px;
+	background-color: white;
+}
 </style>
 </head>
 <body>
@@ -80,11 +78,11 @@
 				<div id="scenario">Scenario</div>
 				<div id="plot">Plot</div>
 				<div id="duration">Duration</div>
-				<div id="primiere">Primiere</div>			
+				<div id="primiere">Primiere</div>
 				<div id="likes">Likes</div>
 			</div>
 		</div>
-		
+
 		<div id="content">
 			<div id="actor">Actor</div>
 			<div id="scenarioActor">ScenarioActor</div>
