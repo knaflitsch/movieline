@@ -10,7 +10,7 @@
 	position: relative;
 	padding: 0 1em;
 	border: none;
-	background-color: #e85657;
+	background-color: grey;
 	color: #f9f6e5;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -172,7 +172,7 @@
 
 .morph-button-modal-1 > button,
 .morph-button-modal-1 .morph-content {
-	background-color: #553445;
+	background-color: #5bc0de;
 }
 
 .morph-button-modal-2 > button,
@@ -217,7 +217,7 @@
 }
 
 .morph-button-modal-1::before {
-	background: rgba(240,221,204,0.7);
+	background: rgba(231,231,231,0.7);
 }
 
 .morph-button-modal-2.open .morph-content {

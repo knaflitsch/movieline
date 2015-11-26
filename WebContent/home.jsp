@@ -161,8 +161,7 @@
 			</button>
 			<a class="navbar-brand" href="#"><img
 				src="./res/img/movielinelogo.png" alt="Mountain View"
-				style="height: 60px; padding-bottom: 30px;">
-			<p style="float: left;">Find your Movies.</p></a>
+				style="height: 60px; padding-bottom: 30px;"></a>
 
 		</div>
 
@@ -188,58 +187,28 @@
 			</ul>
 		</div>
 	</div>
-	
-
-	<div class="carousel">
-		<br>
-		<div id="myCarousel" class="carousel slide" data-ride="carousel">
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
-				<li data-target="#myCarousel" data-slide-to="3"></li>
-			</ol>
-
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox" id="data">
-				<div class="item active"><section>
-	<p>
-		Click the button below to see it expanding into a <strong>modal
-			dialog</strong>:
-	</p>
-	<div class="mockup-content">
-		<span></span><span></span><span></span><span></span>
-		<div
-			class="morph-button morph-button-modal morph-button-modal-1 morph-button-fixed">
-			<button type="button">Terms &amp; Conditions</button>
-			<div class="morph-content">
-				<div>
-					<div class="content-style-text">
-						<span class="icon icon-close">Close the dialog</span>
-						<h2>Terms &amp; Conditions</h2>
-						<p>
-							Pea horseradish azuki bean lettuce avocado asparagus okra.
-							Kohlrabi radish okra azuki bean corn fava bean mustard tigernut
-							juccama green bean celtuce collard greens avocado quandong <strong>fennel
-								gumbo</strong> black-eyed pea. Grape silver beet watercress potato
-							tigernut corn groundnut. Chickweed okra pea winter purslane
-							coriander yarrow sweet pepper radish garlic brussels sprout
-							groundnut summer purslane earthnut pea <strong>tomato
-								spring onion</strong> azuki bean gourd.
-						</p>
-						<p>
-							<input id="terms" type="checkbox" /><label for="terms">I
-								accept the terms &amp; conditions.</label>
-						</p>
+	<div id="detailBtn">
+		<div class="mockup-content">
+			<div
+				class="morph-button morph-button-modal morph-button-modal-1 morph-button-fixed">
+				<button type="button" class="btn btn-info">Details</button>
+				<div class="morph-content">
+					<div>
+						<div class="content-style-text">
+							<span class="icon icon-close">Close the dialog</span>
+							<h2>Informations</h2>
+							<p>Fill in some informations about the movie!!</p>
+							<p>
+								<input id="terms" type="checkbox" /><label for="terms"></label>
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
+			<!-- morph-button -->
 		</div>
-		<!-- morph-button -->
-		<span></span> <span></span>
-	</div>
-	<!-- /form-mockup --> </section>
+		<!-- /form-mockup -->
+		</section>
 	</div>
 	<!-- /container -->
 	<script src="res/js/classie.js"></script>
@@ -301,54 +270,50 @@
 					}
 				} );
 
-<<<<<<< HEAD
 				document.getElementById( 'terms' ).addEventListener( 'change', function() {
 					UIBtnn.toggle();
 				} );
 			})();
-		</script></div>
-=======
+		</script>
+	</div>
+	</div>
+	<div class="carousel">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+				<li data-target="#myCarousel" data-slide-to="3"></li>
+			</ol>
+
 			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox" id="data">
-<<<<<<< HEAD
-
-=======
->>>>>>> f607956576f1fcf27e9cba972dcbc2191f2d122c
-				<div class="item active">HALLO</div>
->>>>>>> caf76330440024f4df0747c6439b5a3e16bb8884
-
-				<div class="item">SERVUS</div>
-			</div>
-<<<<<<< HEAD
-
+			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-						HALLO
+				
 				</div>
 
-				<div class="item">
-						SERVUS
-				</div>
+				<div class="item">hallo</div>
+
+				<div class="item">he</div>
+
+				<div class="item">ho</div>
 			</div>
 
-			<div id="footer">©</div>
-=======
+			<!-- Left and right controls -->
+			<a class="left carousel-control" href="#myCarousel" role="button"
+				data-slide="prev"> <span
+				class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a> <a class="right carousel-control" href="#myCarousel" role="button"
+				data-slide="next"> <span
+				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
 		</div>
 
-		<div id="footer">©</div>
->>>>>>> f607956576f1fcf27e9cba972dcbc2191f2d122c
-
-
-		<!-- Left and right controls -->
-		<a class="left carousel-control" href="#myCarousel" role="button"
-			data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"
-			aria-hidden="true"></span> <span class="sr-only">Previous</span>
-		</a> <a class="right carousel-control" href="#myCarousel" role="button"
-			data-slide="next"> <span
-			class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div>
-	<div id="footer">© Team Fenster and Sam</div>
+		<br>
+		<div id="footer">© Team Fenster and Sam</div>
 	</div>
 </body>
 </html>
