@@ -27,10 +27,11 @@ body {
 #footer {
 	padding-top: 10px;
 	border-top-style: solid;
-	border-color: #DBDBDB;
+	border-top-width:1px;
+	border-color: #e7e7e7;
 	font-size: 12px;
 	color: black;
-	background-color: #e7e7e7;
+	background-color: #f8f8f8;
 	height: 70px;
 	text-align: center;
 	font-weight: bold;

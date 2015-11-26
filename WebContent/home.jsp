@@ -313,7 +313,7 @@
 		</div>
 
 		<br>
-		<div id="footer">© Team Fenster and Sam</div>
+		<div id="footer" >© Team Fenster and Sam</div>
 	</div>
 </body>
 </html>
