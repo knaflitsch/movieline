@@ -159,7 +159,11 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Movieline</a>
+			<a class="navbar-brand" href="#"><img
+				src="./res/img/movielinelogo.png" alt="Mountain View"
+				style="height: 60px; padding-bottom: 30px;">
+			<p style="float: left;">Find your Movies.</p></a>
+
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -178,36 +182,64 @@
 						class="form-control" name="pword" placeholder="Password"
 						required=""> </a></li>
 				<li><a href="#">
-						<button id="loginBtn" type="submit">Sign In</button>
+						<button id="loginBtn" type="submit" class="btn btn-info">Sign
+							In</button>
 				</a></li>
 			</ul>
 		</div>
 	</div>
-	<section>
-	<div class="morph-button morph-button-overlay morph-button-fixed">
-		<button type="button">More Info</button>
-		<div class="morph-content">
-			<div>
-				<div class="content-style-overlay">
-					<span class="icon icon-close">Close the overlay</span>
-					<h2>About Parsley</h2>
-					<p>Gumbo beet greens corn soko endive guato. Dandelion cucumber
-						eaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaarthnut pea peanut soko zucchini.</p>
-					<p></p>
-					<p>Gumbo beet gokra wakame tomaco. Dandelion cucumber earthnut
-						pea peanut soko zucchini.</p>
-					<p>Turnip greenchickpea gram corn pea. Brussels sprout
-						coriander water chestnut gounya nuts nori azuki bean chickweed
-						potato bell pepper artichoke.</p>
-					<p>Gumbo beet greens corn soko endive gumarthnut pea peanut
-						soko zucchini.</p>
-					<p>Turnip greens yarrow ricebeanout coriander wath salsify
-						bunya nuts nori azuki bean chickweed potato bell pepper artichoke.</p>
+	
+
+	<div class="carousel">
+		<br>
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+				<li data-target="#myCarousel" data-slide-to="3"></li>
+			</ol>
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox" id="data">
+				<div class="item active"><section>
+	<p>
+		Click the button below to see it expanding into a <strong>modal
+			dialog</strong>:
+	</p>
+	<div class="mockup-content">
+		<span></span><span></span><span></span><span></span>
+		<div
+			class="morph-button morph-button-modal morph-button-modal-1 morph-button-fixed">
+			<button type="button">Terms &amp; Conditions</button>
+			<div class="morph-content">
+				<div>
+					<div class="content-style-text">
+						<span class="icon icon-close">Close the dialog</span>
+						<h2>Terms &amp; Conditions</h2>
+						<p>
+							Pea horseradish azuki bean lettuce avocado asparagus okra.
+							Kohlrabi radish okra azuki bean corn fava bean mustard tigernut
+							juccama green bean celtuce collard greens avocado quandong <strong>fennel
+								gumbo</strong> black-eyed pea. Grape silver beet watercress potato
+							tigernut corn groundnut. Chickweed okra pea winter purslane
+							coriander yarrow sweet pepper radish garlic brussels sprout
+							groundnut summer purslane earthnut pea <strong>tomato
+								spring onion</strong> azuki bean gourd.
+						</p>
+						<p>
+							<input id="terms" type="checkbox" /><label for="terms">I
+								accept the terms &amp; conditions.</label>
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
+		<!-- morph-button -->
+		<span></span> <span></span>
 	</div>
-	<!-- morph-button --> </section>
+	<!-- /form-mockup --> </section>
 	</div>
 	<!-- /container -->
 	<script src="res/js/classie.js"></script>
@@ -248,10 +280,8 @@
 				};
 
 				scrollFn();
-				
-				var el = document.querySelector( '.morph-button' );
-				
-				new UIMorphingButton( el, {
+
+				var UIBtnn = new UIMorphingButton( document.querySelector( '.morph-button' ), {
 					closeEl : '.icon-close',
 					onBeforeOpen : function() {
 						// don't allow to scroll
@@ -260,16 +290,8 @@
 					onAfterOpen : function() {
 						// can scroll again
 						canScroll();
-						// add class "noscroll" to body
-						classie.addClass( document.body, 'noscroll' );
-						// add scroll class to main el
-						classie.addClass( el, 'scroll' );
 					},
 					onBeforeClose : function() {
-						// remove class "noscroll" to body
-						classie.removeClass( document.body, 'noscroll' );
-						// remove scroll class from main el
-						classie.removeClass( el, 'scroll' );
 						// don't allow to scroll
 						noScroll();
 					},
@@ -278,22 +300,12 @@
 						canScroll();
 					}
 				} );
-			})();
-		</script>
-	<div class="carousel">
-		<br>
-		<div id="myCarousel" class="carousel slide" data-ride="carousel">
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
-				<li data-target="#myCarousel" data-slide-to="3"></li>
-			</ol>
 
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox" id="data">
-				<div class="item active">HALLO</div>
+				document.getElementById( 'terms' ).addEventListener( 'change', function() {
+					UIBtnn.toggle();
+				} );
+			})();
+		</script></div>
 
 				<div class="item">SERVUS</div>
 			</div>
