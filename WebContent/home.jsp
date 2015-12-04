@@ -26,7 +26,7 @@
 	rel="stylesheet">
 <link href="res/assets/docs.css" rel="stylesheet">
 <link href="res/css/style.css" rel="stylesheet">
-<link href="res/css/bootstrap.min.css" rel="stylesheet">
+<link href="res/css/bootstrap.css" rel="stylesheet">
 <link href="res/css/carousel.css" rel="stylesheet">
 <link href="res/css/component.css" rel="stylesheet">
 <link href="res/css/content.css" rel="stylesheet">
