@@ -65,7 +65,7 @@
 					alert("Please fill all fields...!!!!!!");
 				} else {
 					if ((un == 'admin') && (pw == '123')) {
-						alert("Yesssss");
+						$("a").attr("href", "http://localhost:8080/movieline/admin.jsp")
 						$("#login").hide();
 						$('#logout').show();
 

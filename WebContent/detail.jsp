@@ -21,10 +21,30 @@
 	$(function() {
 
 		$(document).ready(function() {
+			loadData();
 			detail();
-
+		
 		});
 
+		function loadData() {
+			$.ajax({
+				headers : {
+					Accept : 'application/json'
+				},
+				type : 'GET',
+				url : "<%=request.getContextPath()%>/rest/movieDetails/movie",
+		
+				success : function(data) {
+					alert("YES");
+				},
+		
+				error : function(e) {
+					console.log(e);
+				}
+		
+			});
+		}
+		
 		function detail() {
 
 		}
@@ -36,10 +56,10 @@
 		margin-left: auto ;
   		margin-right: auto ;
 		width: 1000px;
-		padding: 20px 20px 20px 20px; 
+		padding: 20px 20px 20px 20px;
 		background-color:white;
 	}
-	
+
 	#pic{
 		width: 100px;
 		heigt:200px;
@@ -47,26 +67,27 @@
 		float: left;
 		margin-right: 10px;
 	}
-	
+
 	#title{
 		width: 5000;
 		heigt: 50px;
 	}
-	
+
 	#rightSide{
 		margin-left:10px;
+		width: 150px;
 	}
-	
+
 	#content {
 		margin-top:50px;
 		margin-left: auto ;
   		margin-right: auto ;
 		width: 1000px;
-		padding: 20px 20px 20px 20px; 
+		padding: 20px 20px 20px 20px;
 		background-color:white;
 	}
-	
-	
+
+
 </style>
 </head>
 <body>
@@ -80,11 +101,11 @@
 				<div id="scenario">Scenario</div>
 				<div id="plot">Plot</div>
 				<div id="duration">Duration</div>
-				<div id="primiere">Primiere</div>			
+				<div id="primiere">Primiere</div>
 				<div id="likes">Likes</div>
 			</div>
 		</div>
-		
+
 		<div id="content">
 			<div id="actor">Actor</div>
 			<div id="scenarioActor">ScenarioActor</div>
