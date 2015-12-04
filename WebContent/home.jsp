@@ -46,6 +46,8 @@
 
 	}
 
+	
+	
 	$(function() {
 
 		$(document).ready(function() {
@@ -96,16 +98,10 @@
 			$
 					.ajax({
 						headers : {
-<<<<<<< HEAD
 							Accept : 'application/json'
 						},
 						type : 'Get',
-=======
-							Accept : 'application/json',
-						},
 						contentType : 'application/json',
-						type : 'GET',
->>>>>>> b01fb2570b35e925250b7c71edc6bc073d3f5c93
 						url : 'http://10.115.1.7:8080/Movieline/rest/movieDetails/movie/',
 						success : function(data) {
 							var html = +"<div class='item' >"
@@ -141,6 +137,59 @@
 					});
 		}
 	});
+	
+	
+	
+	//Realtime Search function of Table
+    var activeSystemClass = $('.list-group-item.active');
+
+    //something is entered in search form
+    $('#system-search').keyup( function() {
+       var that = this;
+        // affect all table rows on in systems table
+        var tableBody = $('.table-list-search tbody');
+        var tableRowsClass = $('.table-list-search tbody tr');
+        $('.search-sf').remove();
+        tableRowsClass.each( function(i, val) {
+        
+            //Lower text for case insensitive
+            var rowText = $(val).text().toLowerCase();
+            var inputText = $(that).val().toLowerCase();
+            
+            if (hasWhiteSpace(inputText)) {
+				alert("true");
+			}
+            
+            if(inputText != '')
+            {
+                $('.search-query-sf').remove();
+                tableBody.prepend('<tr class="search-query-sf"><td colspan="6"><strong>Searching for: "'
+                    + $(that).val()
+                    + '"</strong></td></tr>');
+            }
+            else
+            {
+                $('.search-query-sf').remove();
+            }
+
+            if( rowText.indexOf( inputText ) == -1 )
+            {
+                //hide rows
+                tableRowsClass.eq(i).hide();
+                
+            }
+            else
+            {
+                $('.search-sf').remove();
+                tableRowsClass.eq(i).show();
+            }
+        });
+        //all tr elements are hidden
+        if(tableRowsClass.children(':visible').length == 0)
+        {
+            tableBody.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
+        }
+    });
 </script>
 </head>
 <body>
@@ -177,6 +226,13 @@
 				</a></li>
 			</ul>
 		</div>
+		<div id=adminTable class="col-md-2">
+			<div class="input-group">
+				<input class="form-control" id="system-search" name="q"
+					placeholder="Suche eingeben" required>
+			</div>
+			<div style="margin-top: 5px;" id="componentsGlyph"></div>
+		</div>
 	</div>
 
 	<div class="carousel">
@@ -192,12 +248,112 @@
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox" id="data">
-				<div class="item active">
-						HALLO
+				<div id="table" class="col-md-10">
+					<table id="data" class="table table-list-search">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Genre</th>
+								<th>Release</th>
+								<th>Info</th>
+								<th>Actors</th>
+								<th></th>
+								<th></th>
+							</tr>
+						</thead>
+					</table>
 				</div>
-
+				<div class="item active">
+					<table>
+						<tbody>
+							<tr id="tableRow_1">
+								<td>Them Hoes</td>
+								<td>Hardcore XXX</td>
+								<td>1999</td>
+								<td class="infoTD">Lorem ipsum dolor sit amet, consetetur
+									sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+									labore et dolore magna aliquyam erat, sed diam voluptua. At
+									vero eos et accusam et justo duo dolores et ea rebum. Stet
+									clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+									dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+									sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+									labore et dolore magna aliquyam erat, sed diam voluptua. At
+									vero eos et accusam et justo duo dolores et ea rebum. Stet
+									clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+									dolor sit amet.</td>
+								<td>Some Fags</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 				<div class="item">
-						SERVUS
+					<table>
+						<tbody>
+							<tr id="tableRow_2">
+								<td>Racing Grid eXtReME</td>
+								<td>Hardcore Race</td>
+								<td>1752</td>
+								<td class="infoTD">Lorem ipsum dolor sit amet, consetetur
+									sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+									labore et dolore magna aliquyam erat, sed diam voluptua. At
+									vero eos et accusam et justo duo dolores et ea rebum. Stet
+									clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+									dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+									sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+									labore et dolore magna aliquyam erat, sed diam voluptua. At
+									vero eos et accusam et justo duo dolores et ea rebum. Stet
+									clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+									dolor sit amet.</td>
+								<td>Some more Fags</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="item">
+					<table>
+						<tbody>
+							<tr id="tableRow_3">
+								<td>Fishing Lies Within</td>
+								<td>Hardcore XXX Documentray</td>
+								<td>2202</td>
+								<td class="infoTD">Lorem ipsum dolor sit amet, consetetur
+									sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+									labore et dolore magna aliquyam erat, sed diam voluptua. At
+									vero eos et accusam et justo duo dolores et ea rebum. Stet
+									clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+									dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+									sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+									labore et dolore magna aliquyam erat, sed diam voluptua. At
+									vero eos et accusam et justo duo dolores et ea rebum. Stet
+									clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+									dolor sit amet.</td>
+								<td>Some stupid Fags</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="item">
+					<table>
+						<tbody>
+							<tr id="tableRow_4">
+								<td>Milos in the Hawt</td>
+								<td>Hardcore Action Sheit</td>
+								<td>2016</td>
+								<td class="infoTD">Lorem ipsum dolor sit amet, consetetur
+									sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+									labore et dolore magna aliquyam erat, sed diam voluptua. At
+									vero eos et accusam et justo duo dolores et ea rebum. Stet
+									clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+									dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+									sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+									labore et dolore magna aliquyam erat, sed diam voluptua. At
+									vero eos et accusam et justo duo dolores et ea rebum. Stet
+									clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+									dolor sit amet.</td>
+								<td>The bals Fag</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
 
