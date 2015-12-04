@@ -12,6 +12,10 @@
 <meta name="author" content="">
 <link rel="icon" href="res/images/thet.png">
 <script src="res/js/jquery.js" type="text/javascript"></script>
+<script src="res/js/classie.js" type="text/javascript"></script>
+<script src="res/js/modernizr.custom.js" type="text/javascript"></script>
+<script src="res/js/uiMorphingButton_fixed.js" type="text/javascript"></script>
+<script src="res/js/uiMorphingButton_inflow.js" type="text/javascript"></script>
 <script src="res/js/jquery-ui.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="res/css/jquery-ui.min.css">
 <link
@@ -22,8 +26,12 @@
 	rel="stylesheet">
 <link href="res/assets/docs.css" rel="stylesheet">
 <link href="res/css/style.css" rel="stylesheet">
-<link href="res/css/bootstrap.min.css" rel="stylesheet">
+<link href="res/css/bootstrap.css" rel="stylesheet">
 <link href="res/css/carousel.css" rel="stylesheet">
+<link href="res/css/component.css" rel="stylesheet">
+<link href="res/css/content.css" rel="stylesheet">
+<link href="res/css/demo.css" rel="stylesheet">
+<link href="res/css/normalize.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -96,6 +104,9 @@
 			$
 					.ajax({
 						headers : {
+							Accept : 'application/json'
+						},
+						type : 'Get',
 							Accept : 'application/json',
 						},
 						contentType : 'application/json',
@@ -148,7 +159,10 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Movieline</a>
+			<a class="navbar-brand" href="#"><img
+				src="./res/img/movielinelogo.png" alt="Mountain View"
+				style="height: 60px; padding-bottom: 30px;"></a>
+
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -167,14 +181,103 @@
 						class="form-control" name="pword" placeholder="Password"
 						required=""> </a></li>
 				<li><a href="#">
-						<button id="loginBtn" type="submit">Sign In</button>
+						<button id="loginBtn" type="submit" class="btn btn-info">Sign
+							In</button>
 				</a></li>
 			</ul>
 		</div>
 	</div>
+	<div id="detailBtn">
+		<div class="mockup-content">
+			<div
+				class="morph-button morph-button-modal morph-button-modal-1 morph-button-fixed">
+				<button type="button" class="btn btn-info">Details</button>
+				<div class="morph-content">
+					<div>
+						<div class="content-style-text">
+							<span class="icon icon-close">Close the dialog</span>
+							<h2>Informations</h2>
+							<p>Fill in some informations about the movie!!</p>
+							<p>
+								<input id="terms" type="checkbox" /><label for="terms"></label>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- morph-button -->
+		</div>
+		<!-- /form-mockup -->
+		</section>
+	</div>
+	<!-- /container -->
+	<script src="res/js/classie.js"></script>
+	<script src="res/js/uiMorphingButton_fixed.js"></script>
+	<script>
+			(function() {	
+				var docElem = window.document.documentElement, didScroll, scrollPosition;
 
+				// trick to prevent scrolling when opening/closing button
+				function noScrollFn() {
+					window.scrollTo( scrollPosition ? scrollPosition.x : 0, scrollPosition ? scrollPosition.y : 0 );
+				}
+
+				function noScroll() {
+					window.removeEventListener( 'scroll', scrollHandler );
+					window.addEventListener( 'scroll', noScrollFn );
+				}
+
+				function scrollFn() {
+					window.addEventListener( 'scroll', scrollHandler );
+				}
+
+				function canScroll() {
+					window.removeEventListener( 'scroll', noScrollFn );
+					scrollFn();
+				}
+
+				function scrollHandler() {
+					if( !didScroll ) {
+						didScroll = true;
+						setTimeout( function() { scrollPage(); }, 60 );
+					}
+				};
+
+				function scrollPage() {
+					scrollPosition = { x : window.pageXOffset || docElem.scrollLeft, y : window.pageYOffset || docElem.scrollTop };
+					didScroll = false;
+				};
+
+				scrollFn();
+
+				var UIBtnn = new UIMorphingButton( document.querySelector( '.morph-button' ), {
+					closeEl : '.icon-close',
+					onBeforeOpen : function() {
+						// don't allow to scroll
+						noScroll();
+					},
+					onAfterOpen : function() {
+						// can scroll again
+						canScroll();
+					},
+					onBeforeClose : function() {
+						// don't allow to scroll
+						noScroll();
+					},
+					onAfterClose : function() {
+						// can scroll again
+						canScroll();
+					}
+				} );
+
+				document.getElementById( 'terms' ).addEventListener( 'change', function() {
+					UIBtnn.toggle();
+				} );
+			})();
+		</script>
+	</div>
+	</div>
 	<div class="carousel">
-		<br>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -185,9 +288,17 @@
 			</ol>
 
 			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox" id="data"></div>
-			<div id="footer">©</div>
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+				
+				</div>
 
+				<div class="item">hallo</div>
+
+				<div class="item">he</div>
+
+				<div class="item">ho</div>
+			</div>
 
 			<!-- Left and right controls -->
 			<a class="left carousel-control" href="#myCarousel" role="button"
@@ -200,7 +311,9 @@
 				<span class="sr-only">Next</span>
 			</a>
 		</div>
-		<div id="footer">© Team Fenster and Sam</div>
+
+		<br>
+		<div id="footer" >© Team Fenster and Sam</div>
 	</div>
 </body>
 </html>

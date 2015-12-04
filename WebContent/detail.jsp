@@ -51,6 +51,7 @@
 	});
 </script>
 <style>
+<<<<<<< HEAD
 	#movie {
 		margin-top:100px;
 		margin-left: auto ;
@@ -88,6 +89,42 @@
 	}
 
 
+=======
+#movie {
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+	padding: 20px 20px 20px 20px;
+	background-color: white;
+}
+
+#pic {
+	width: 100px;
+	heigt: 200px;
+	border-style: solid;
+	float: left;
+	margin-right: 10px;
+}
+
+#title {
+	width: 5000;
+	heigt: 50px;
+}
+
+#rightSide {
+	margin-left: 10px;
+}
+
+#content {
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+	padding: 20px 20px 20px 20px;
+	background-color: white;
+}
+>>>>>>> 80a4f979127505bfd2d2a7810a6666e06e93d218
 </style>
 </head>
 <body>
