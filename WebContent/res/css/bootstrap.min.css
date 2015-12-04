@@ -4454,7 +4454,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 .navbar-default {
 	background-color: #00ced1;
-	border-color: #e7e7e7
+	border-color: #e7e7e7;
 }
 
 .navbar-default .navbar-brand {
@@ -4509,7 +4509,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
 	border-color: #e7e7e7;
-	background-color: #c0c0c0;
+	
 	
 }
 

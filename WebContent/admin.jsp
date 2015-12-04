@@ -16,6 +16,8 @@
 
 <script  type="text/javascript">
 var pointer = 0;
+var searchArr = [];
+var searchIndex = 0;
 
 $(document).ready(function() {
 	$('.selectpicker').selectpicker();
@@ -23,14 +25,14 @@ $(document).ready(function() {
 	
 	//Glyphon Function
 	$("#btnBack").click(function(){
-			pointer = pointer - 5;
+			pointer = pointer - 20;
 			$("#data").fadeOut('slow', function() {
 
 			});
 		});
 		
 		$("#btnNext").click(function(){
-			pointer = pointer + 5;
+			pointer = pointer + 20;
 			$("#data").fadeOut('slow', function() {
 
 			});
@@ -48,14 +50,17 @@ $(document).ready(function() {
 				Accept : 'application/json'
 			},
 			type : 'GET',
-			url : "<%=request.getContextPath()%>/rest/movieDetails/movie",
+			url : "http://10.115.1.7:8080/Movieline/rest/movieDetails/movie/",
 	
 			success : function(data) {
-				alert("YES");
+				
+				alert("Success");
 			},
 	
 			error : function(e) {
+				alert(e);
 				console.log(e);
+				
 			}
 	
 		});
@@ -218,6 +223,8 @@ $(document).ready(function() {
 
     //something is entered in search form
     $('#system-search').keyup( function() {
+    	var addedQuery = false;
+    	searchIndex++;
        var that = this;
         // affect all table rows on in systems table
         var tableBody = $('.table-list-search tbody');
@@ -228,10 +235,6 @@ $(document).ready(function() {
             //Lower text for case insensitive
             var rowText = $(val).text().toLowerCase();
             var inputText = $(that).val().toLowerCase();
-            
-            if (hasWhiteSpace(inputText)) {
-				alert("true");
-			}
             
             if(inputText != '')
             {
@@ -263,10 +266,6 @@ $(document).ready(function() {
             tableBody.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
         }
     });
-    
-    function hasWhiteSpace(s) {
-    	  return s.indexOf(' ') >= 0;
-    	}
 });
 </script>
 

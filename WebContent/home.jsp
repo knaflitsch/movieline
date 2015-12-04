@@ -26,7 +26,7 @@
 	rel="stylesheet">
 <link href="res/assets/docs.css" rel="stylesheet">
 <link href="res/css/style.css" rel="stylesheet">
-<link href="res/css/bootstrap.min.css" rel="stylesheet">
+<link href="res/css/bootstrap.css" rel="stylesheet">
 <link href="res/css/carousel.css" rel="stylesheet">
 <link href="res/css/component.css" rel="stylesheet">
 <link href="res/css/content.css" rel="stylesheet">
@@ -104,25 +104,13 @@
 			$
 					.ajax({
 						headers : {
-<<<<<<< HEAD
-
 							Accept : 'application/json'
 						},
 						type : 'Get',
-
-=======
-							Accept : 'application/json'
-						},
-						type : 'Get',
->>>>>>> f607956576f1fcf27e9cba972dcbc2191f2d122c
 							Accept : 'application/json',
 						},
 						contentType : 'application/json',
 						type : 'GET',
-<<<<<<< HEAD
-
-=======
->>>>>>> f607956576f1fcf27e9cba972dcbc2191f2d122c
 						url : 'http://10.115.1.7:8080/Movieline/rest/movieDetails/movie/',
 						success : function(data) {
 							var html = +"<div class='item' >"
@@ -171,7 +159,10 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Movieline</a>
+			<a class="navbar-brand" href="#"><img
+				src="./res/img/movielinelogo.png" alt="Mountain View"
+				style="height: 60px; padding-bottom: 30px;"></a>
+
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -190,36 +181,34 @@
 						class="form-control" name="pword" placeholder="Password"
 						required=""> </a></li>
 				<li><a href="#">
-						<button id="loginBtn" type="submit">Sign In</button>
+						<button id="loginBtn" type="submit" class="btn btn-info">Sign
+							In</button>
 				</a></li>
 			</ul>
 		</div>
 	</div>
-	<section>
-	<div class="morph-button morph-button-overlay morph-button-fixed">
-		<button type="button">More Info</button>
-		<div class="morph-content">
-			<div>
-				<div class="content-style-overlay">
-					<span class="icon icon-close">Close the overlay</span>
-					<h2>About Parsley</h2>
-					<p>Gumbo beet greens corn soko endive guato. Dandelion cucumber
-						eaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaarthnut pea peanut soko zucchini.</p>
-					<p></p>
-					<p>Gumbo beet gokra wakame tomaco. Dandelion cucumber earthnut
-						pea peanut soko zucchini.</p>
-					<p>Turnip greenchickpea gram corn pea. Brussels sprout
-						coriander water chestnut gounya nuts nori azuki bean chickweed
-						potato bell pepper artichoke.</p>
-					<p>Gumbo beet greens corn soko endive gumarthnut pea peanut
-						soko zucchini.</p>
-					<p>Turnip greens yarrow ricebeanout coriander wath salsify
-						bunya nuts nori azuki bean chickweed potato bell pepper artichoke.</p>
+	<div id="detailBtn">
+		<div class="mockup-content">
+			<div
+				class="morph-button morph-button-modal morph-button-modal-1 morph-button-fixed">
+				<button type="button" class="btn btn-info">Details</button>
+				<div class="morph-content">
+					<div>
+						<div class="content-style-text">
+							<span class="icon icon-close">Close the dialog</span>
+							<h2>Informations</h2>
+							<p>Fill in some informations about the movie!!</p>
+							<p>
+								<input id="terms" type="checkbox" /><label for="terms"></label>
+							</p>
+						</div>
+					</div>
 				</div>
 			</div>
+			<!-- morph-button -->
 		</div>
-	</div>
-	<!-- morph-button --> </section>
+		<!-- /form-mockup -->
+		</section>
 	</div>
 	<!-- /container -->
 	<script src="res/js/classie.js"></script>
@@ -260,10 +249,8 @@
 				};
 
 				scrollFn();
-				
-				var el = document.querySelector( '.morph-button' );
-				
-				new UIMorphingButton( el, {
+
+				var UIBtnn = new UIMorphingButton( document.querySelector( '.morph-button' ), {
 					closeEl : '.icon-close',
 					onBeforeOpen : function() {
 						// don't allow to scroll
@@ -272,16 +259,8 @@
 					onAfterOpen : function() {
 						// can scroll again
 						canScroll();
-						// add class "noscroll" to body
-						classie.addClass( document.body, 'noscroll' );
-						// add scroll class to main el
-						classie.addClass( el, 'scroll' );
 					},
 					onBeforeClose : function() {
-						// remove class "noscroll" to body
-						classie.removeClass( document.body, 'noscroll' );
-						// remove scroll class from main el
-						classie.removeClass( el, 'scroll' );
 						// don't allow to scroll
 						noScroll();
 					},
@@ -290,10 +269,15 @@
 						canScroll();
 					}
 				} );
+
+				document.getElementById( 'terms' ).addEventListener( 'change', function() {
+					UIBtnn.toggle();
+				} );
 			})();
 		</script>
+	</div>
+	</div>
 	<div class="carousel">
-		<br>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -304,32 +288,32 @@
 			</ol>
 
 			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox" id="data">
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+				
+				</div>
 
-				<div class="item active">HALLO</div>
+				<div class="item">hallo</div>
 
-				<div class="item">SERVUS</div>
+				<div class="item">he</div>
+
+				<div class="item">ho</div>
 			</div>
 
-			<div id="footer">©</div>
-
+			<!-- Left and right controls -->
+			<a class="left carousel-control" href="#myCarousel" role="button"
+				data-slide="prev"> <span
+				class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a> <a class="right carousel-control" href="#myCarousel" role="button"
+				data-slide="next"> <span
+				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
 		</div>
 
-		<div id="footer">©</div>
-
-
-
-		<!-- Left and right controls -->
-		<a class="left carousel-control" href="#myCarousel" role="button"
-			data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"
-			aria-hidden="true"></span> <span class="sr-only">Previous</span>
-		</a> <a class="right carousel-control" href="#myCarousel" role="button"
-			data-slide="next"> <span
-			class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div>
-	<div id="footer">© Team Fenster and Sam</div>
+		<br>
+		<div id="footer" >© Team Fenster and Sam</div>
 	</div>
 </body>
 </html>
