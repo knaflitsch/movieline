@@ -1,20 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <script src="./res/js/jquery.js" type="text/javascript"></script>
 <script src="./res/js/jquery-ui.min.js" type="text/javascript"></script>
 <script src="./res/js/bootstrap.js" type="text/javascript"></script>
-<script src="./res/js/bootstrap-select/bootstrap-select.js" type="text/javascript"></script>
+<script src="./res/js/bootstrap-select/bootstrap-select.js"
+	type="text/javascript"></script>
 <link rel="stylesheet" href="./res/css/jquery-ui.min.css">
 <link rel="stylesheet" href="./res/css/jquery-ui.structure.min.css">
 <link rel="stylesheet" href="./res/css/bootstrap-select.min.css">
-<link href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css" rel="stylesheet" id="bootstrap">
+<link
+	href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 
-<script  type="text/javascript">
+<script type="text/javascript">
 var pointer = 0;
 var searchArr = [];
 var searchIndex = 0;
@@ -270,19 +273,19 @@ $(document).ready(function() {
 </script>
 
 <style type="text/css">
-#adminTable{
-	margin-top:3%;
-	margin-right:10%;
-	margin-left:10%;
+#adminTable {
+	margin-top: 3%;
+	margin-right: 10%;
+	margin-left: 10%;
 }
 
-.infoTD{
+.infoTD {
 	width: 25%;
 }
 </style>
 </head>
 <body>
-<div id="dialog_delete" title="Delete Movie">
+	<div id="dialog_delete" title="Delete Movie">
 		<p id="deleteTitle"></p>
 		<table class="table">
 			<tr>
@@ -292,76 +295,125 @@ $(document).ready(function() {
 			</tr>
 		</table>
 
-</div>
-<div id="adminTable">
-	<div class="row">
-        <div class="col-md-2">
-                <div class="input-group">
-                    <input class="form-control" id="system-search" name="q" placeholder="Search for" required>
-                </div>
-                <div style="margin-top:5px;" id="componentsGlyph">
-				<button title="Previous Page" class="btn btn-default" id="btnBack">
-					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				</button>
-				<button title="Next Page" class="btn btn-default" id="btnNext">				
-					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				</button>
+	</div>
+	<div id="adminTable">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="input-group">
+					<input class="form-control" id="system-search" name="q"
+						placeholder="Search for" required>
+				</div>
+				<div style="margin-top: 5px;" id="componentsGlyph">
+					<button title="Previous Page" class="btn btn-default" id="btnBack">
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					</button>
+					<button title="Next Page" class="btn btn-default" id="btnNext">
+						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					</button>
+				</div>
 			</div>
-        </div>
-		<div class="col-md-10">
-    	 <table id="data" class="table table-list-search">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Genre</th>
-                            <th>Release</th>
-                            <th>Info</th>
-                            <th>Actors</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    	<tr id="tableRow_1">
-                    		<td>Them Hoes</td>
-                    		<td>Hardcore XXX</td>
-                    		<td>1999</td>
-                    		<td class="infoTD">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</td>
-                     		<td>Some Fags</td>
-                     		<td><button class='btn btn-default' id='changeBtn' data-id="1" data-title="Title" data-genre="Genre" data-release="8888" data-info="Info" data-actors="Actors">Change</button></td>
-                     		<td><button class='btn btn-default' id='deleteBtn' data-id="1" data-name="1">Delete</button></td>
-                     	</tr>
-                     	<tr id="tableRow_2">
-                    		<td>Racing Grid eXtReME</td>
-                    		<td>Hardcore Race</td>
-                    		<td>1752</td>
-                    		<td class="infoTD">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</td>
-                     		<td>Some more Fags</td>
-                     		<td><button class='btn btn-default' id='changeBtn' data-id="2" data-title="Title" data-genre="Genre" data-release="8888" data-info="Info" data-actors="Actors">Change</button></td>
-                     		<td><button class='btn btn-default' id='deleteBtn' data-id="2" data-name="2">Delete</button></td>
-                     	</tr>
-                     	<tr id="tableRow_3">
-                    		<td>Fishing Lies Within</td>
-                    		<td>Hardcore XXX Documentray</td>
-                    		<td>2202</td>
-                    		<td class="infoTD">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</td>
-                     		<td>Some stupid Fags</td>
-                     		<td><button class='btn btn-default' id='changeBtn' data-id="3" data-title="Title" data-genre="Genre" data-release="8888" data-info="Info" data-actors="Actors">Change</button></td>
-                     		<td><button class='btn btn-default' id='deleteBtn' data-id="3" data-name="3">Delete</button></td>
-                     	</tr>
-                     	<tr id="tableRow_4">
-                    		<td>Milos in the Hawt</td>
-                    		<td>Hardcore Action Sheit</td>
-                    		<td>2016</td>
-                    		<td class="infoTD">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</td>
-                     		<td>The bals Fag</td>
-                     		<td><button class='btn btn-default' id='changeBtn' data-id="4" data-title="Title" data-genre="Genre" data-release="8888" data-info="Info" data-actors="Actors">Change</button></td>
-                     		<td><button class='btn btn-default' id='deleteBtn' data-id="4" data-name="4">Delete</button></td>
-                     	</tr>
-                    </tbody>
-                </table>   
+			<div class="col-md-10">
+				<table id="data" class="table table-list-search">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Genre</th>
+							<th>Release</th>
+							<th>Info</th>
+							<th>Actors</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr id="tableRow_1">
+							<td>Them Hoes</td>
+							<td>Hardcore XXX</td>
+							<td>1999</td>
+							<td class="infoTD">Lorem ipsum dolor sit amet, consetetur
+								sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+								labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+								eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+								gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+								amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+								aliquyam erat, sed diam voluptua. At vero eos et accusam et
+								justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+								takimata sanctus est Lorem ipsum dolor sit amet.</td>
+							<td>Some Fags</td>
+							<td><button class='btn btn-default' id='changeBtn'
+									data-id="1" data-title="Title" data-genre="Genre"
+									data-release="8888" data-info="Info" data-actors="Actors">Change</button></td>
+							<td><button class='btn btn-default' id='deleteBtn'
+									data-id="1" data-name="1">Delete</button></td>
+						</tr>
+						<tr id="tableRow_2">
+							<td>Racing Grid eXtReME</td>
+							<td>Hardcore Race</td>
+							<td>1752</td>
+							<td class="infoTD">Lorem ipsum dolor sit amet, consetetur
+								sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+								labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+								eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+								gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+								amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+								aliquyam erat, sed diam voluptua. At vero eos et accusam et
+								justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+								takimata sanctus est Lorem ipsum dolor sit amet.</td>
+							<td>Some more Fags</td>
+							<td><button class='btn btn-default' id='changeBtn'
+									data-id="2" data-title="Title" data-genre="Genre"
+									data-release="8888" data-info="Info" data-actors="Actors">Change</button></td>
+							<td><button class='btn btn-default' id='deleteBtn'
+									data-id="2" data-name="2">Delete</button></td>
+						</tr>
+						<tr id="tableRow_3">
+							<td>Fishing Lies Within</td>
+							<td>Hardcore XXX Documentray</td>
+							<td>2202</td>
+							<td class="infoTD">Lorem ipsum dolor sit amet, consetetur
+								sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+								labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+								eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+								gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+								amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+								aliquyam erat, sed diam voluptua. At vero eos et accusam et
+								justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+								takimata sanctus est Lorem ipsum dolor sit amet.</td>
+							<td>Some stupid Fags</td>
+							<td><button class='btn btn-default' id='changeBtn'
+									data-id="3" data-title="Title" data-genre="Genre"
+									data-release="8888" data-info="Info" data-actors="Actors">Change</button></td>
+							<td><button class='btn btn-default' id='deleteBtn'
+									data-id="3" data-name="3">Delete</button></td>
+						</tr>
+						<tr id="tableRow_4">
+							<td>Milos in the Hawt</td>
+							<td>Hardcore Action Sheit</td>
+							<td>2016</td>
+							<td class="infoTD">Lorem ipsum dolor sit amet, consetetur
+								sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+								labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+								eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+								gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+								amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+								aliquyam erat, sed diam voluptua. At vero eos et accusam et
+								justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+								takimata sanctus est Lorem ipsum dolor sit amet.</td>
+							<td>The bals Fag</td>
+							<td><button class='btn btn-default' id='changeBtn'
+									data-id="4" data-title="Title" data-genre="Genre"
+									data-release="8888" data-info="Info" data-actors="Actors">Change</button></td>
+							<td><button class='btn btn-default' id='deleteBtn'
+									data-id="4" data-name="4">Delete</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
-</div>
 </body>
 </html>
