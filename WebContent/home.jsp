@@ -18,23 +18,21 @@
 <script src="res/js/uiMorphingButton_inflow.js" type="text/javascript"></script>
 <script src="res/js/jquery-ui.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="res/css/jquery-ui.min.css">
-<link
-	href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap">
+
 <link
 	href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"
 	rel="stylesheet">
 <link href="res/assets/docs.css" rel="stylesheet">
 <link href="res/css/style.css" rel="stylesheet">
+<link href="res/css/bootstrap.min.css" rel="stylesheet">
 <link href="res/css/bootstrap.css" rel="stylesheet">
 <link href="res/css/carousel.css" rel="stylesheet">
 <link href="res/css/component.css" rel="stylesheet">
 <link href="res/css/content.css" rel="stylesheet">
 <link href="res/css/demo.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="./res/css/bootstrap.min.css">
 <link href="res/css/normalize.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script

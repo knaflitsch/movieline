@@ -9,9 +9,6 @@ body {
 .list-group-item{
 	height: 50px;
 }
-#carousel{
-	height: 750px;
-}
 #userName{
 	width:200px;
 }
@@ -43,10 +40,9 @@ body {
 	border-bottom-style: solid;
 	
 }
-.navbar{
-	margin-bottom: 0px;
+#myCarousel{
+	height:820px;
 }
-
 .item{
 	margin-left:300px;
 	margin-top:20px;
