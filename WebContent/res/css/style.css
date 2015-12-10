@@ -47,3 +47,15 @@ body {
 	margin-left:300px;
 	margin-top:20px;
 }
+
+#adminTable{
+	margin-top:7px;
+}
+
+#table{
+	width:800px;
+	margin-left:400px;
+}
+.infoTD{
+	width: 25%;
+}

@@ -30,7 +30,8 @@
 <link href="res/css/component.css" rel="stylesheet">
 <link href="res/css/content.css" rel="stylesheet">
 <link href="res/css/demo.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="./res/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="./res/css/bootstrap.min.css">
 <link href="res/css/normalize.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script
@@ -52,6 +53,8 @@
 
 	}
 
+	
+	
 	$(function() {
 
 		$(document).ready(function() {
@@ -109,6 +112,7 @@
 						},
 						contentType : 'application/json',
 						type : 'GET',
+						contentType : 'application/json',
 						url : 'http://10.115.1.7:8080/Movieline/rest/movieDetails/movie/',
 						success : function(data) {
 							var html = +"<div class='item' >"
@@ -144,6 +148,59 @@
 					});
 		}
 	});
+	
+	
+	
+	//Realtime Search function of Table
+    var activeSystemClass = $('.list-group-item.active');
+
+    //something is entered in search form
+    $('#system-search').keyup( function() {
+       var that = this;
+        // affect all table rows on in systems table
+        var tableBody = $('.table-list-search tbody');
+        var tableRowsClass = $('.table-list-search tbody tr');
+        $('.search-sf').remove();
+        tableRowsClass.each( function(i, val) {
+        
+            //Lower text for case insensitive
+            var rowText = $(val).text().toLowerCase();
+            var inputText = $(that).val().toLowerCase();
+            
+            if (hasWhiteSpace(inputText)) {
+				alert("true");
+			}
+            
+            if(inputText != '')
+            {
+                $('.search-query-sf').remove();
+                tableBody.prepend('<tr class="search-query-sf"><td colspan="6"><strong>Searching for: "'
+                    + $(that).val()
+                    + '"</strong></td></tr>');
+            }
+            else
+            {
+                $('.search-query-sf').remove();
+            }
+
+            if( rowText.indexOf( inputText ) == -1 )
+            {
+                //hide rows
+                tableRowsClass.eq(i).hide();
+                
+            }
+            else
+            {
+                $('.search-sf').remove();
+                tableRowsClass.eq(i).show();
+            }
+        });
+        //all tr elements are hidden
+        if(tableRowsClass.children(':visible').length == 0)
+        {
+            tableBody.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
+        }
+    });
 </script>
 </head>
 <body>
@@ -171,19 +228,24 @@
 				<li><a href="#"> </a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-
+				<li><a> <input class="form-control" id="system-search"
+						name="q" placeholder="Suche eingeben" required>
+				</a></li>
 				<li><a href="#"> <input id="userName" type="text"
 						class="form-control" name="usr" placeholder="Admin">
 				</a></li>
 				<li><a href="#"><input id="password" type="password"
 						class="form-control" name="pword" placeholder="Password"
 						required=""> </a></li>
+
 				<li><a href="#">
 						<button id="loginBtn" type="submit" class="btn btn-info">Sign
 							In</button>
 				</a></li>
+
 			</ul>
 		</div>
+
 	</div>
 
 	</div>
@@ -199,10 +261,7 @@
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<div class="item active"></div>
-
-				<div class="item">
-
+				<div class="item active">
 					<table>
 						<tr>
 							<td><p>Hallo</p></td>
@@ -307,26 +366,131 @@
 						</tr>
 
 					</table>
+				</div>
+
+				<div class="item">
+					<div class="carousel-inner" role="listbox" id="data">
+						<div id="table" class="col-md-10">
+							<table id="data" class="table table-list-search">
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Genre</th>
+										<th>Release</th>
+										<th>Info</th>
+										<th>Actors</th>
+										<th></th>
+										<th></th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+							<table>
+								<tbody>
+									<tr id="tableRow_1">
+										<td>Them Hoes</td>
+										<td>Hardcore XXX</td>
+										<td>1999</td>
+										<td class="infoTD">Lorem ipsum dolor sit amet, consetetur
+											sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+											labore et dolore magna aliquyam erat, sed diam voluptua. At
+											vero eos et accusam et justo duo dolores et ea rebum. Stet
+											clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+											dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+											sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+											labore et dolore magna aliquyam erat, sed diam voluptua. At
+											vero eos et accusam et justo duo dolores et ea rebum. Stet
+											clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+											dolor sit amet.</td>
+										<td>Some Fags</td>
+									</tr>
+								</tbody>
+							</table>
+							<table>
+								<tbody>
+									<tr id="tableRow_2">
+										<td>Racing Grid eXtReME</td>
+										<td>Hardcore Race</td>
+										<td>1752</td>
+										<td class="infoTD">Lorem ipsum dolor sit amet, consetetur
+											sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+											labore et dolore magna aliquyam erat, sed diam voluptua. At
+											vero eos et accusam et justo duo dolores et ea rebum. Stet
+											clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+											dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+											sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+											labore et dolore magna aliquyam erat, sed diam voluptua. At
+											vero eos et accusam et justo duo dolores et ea rebum. Stet
+											clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+											dolor sit amet.</td>
+										<td>Some more Fags</td>
+									</tr>
+								</tbody>
+							</table>
+							<table>
+								<tbody>
+									<tr id="tableRow_3">
+										<td>Fishing Lies Within</td>
+										<td>Hardcore XXX Documentray</td>
+										<td>2202</td>
+										<td class="infoTD">Lorem ipsum dolor sit amet, consetetur
+											sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+											labore et dolore magna aliquyam erat, sed diam voluptua. At
+											vero eos et accusam et justo duo dolores et ea rebum. Stet
+											clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+											dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+											sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+											labore et dolore magna aliquyam erat, sed diam voluptua. At
+											vero eos et accusam et justo duo dolores et ea rebum. Stet
+											clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+											dolor sit amet.</td>
+										<td>Some stupid Fags</td>
+									</tr>
+								</tbody>
+							</table>
+							<table>
+								<tbody>
+									<tr id="tableRow_4">
+										<td>Milos in the Hawt</td>
+										<td>Hardcore Action Sheit</td>
+										<td>2016</td>
+										<td class="infoTD">Lorem ipsum dolor sit amet, consetetur
+											sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+											labore et dolore magna aliquyam erat, sed diam voluptua. At
+											vero eos et accusam et justo duo dolores et ea rebum. Stet
+											clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+											dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+											sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+											labore et dolore magna aliquyam erat, sed diam voluptua. At
+											vero eos et accusam et justo duo dolores et ea rebum. Stet
+											clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+											dolor sit amet.</td>
+										<td>The bals Fag</td>
+									</tr>
+								</tbody>
+							</table>
+					</div>
+				</div>
+
+				<div class="item">he</div>
+
+				<div class="item">ho</div>
 			</div>
 
-			<div class="item">he</div>
-
-			<div class="item">ho</div>
+			<!-- Left and right controls -->
+			<a class="left carousel-control" href="#myCarousel" role="button"
+				data-slide="prev"> <span
+				class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a> <a class="right carousel-control" href="#myCarousel" role="button"
+				data-slide="next"> <span
+				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
 		</div>
 
-		<!-- Left and right controls -->
-		<a class="left carousel-control" href="#myCarousel" role="button"
-			data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"
-			aria-hidden="true"></span> <span class="sr-only">Previous</span>
-		</a> <a class="right carousel-control" href="#myCarousel" role="button"
-			data-slide="next"> <span
-			class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div>
-
-	<br>
-	<div id="footer">© Team Fenster and Sam</div>
+		<br>
+		<div id="footer">© Team Fenster and Sam</div>
 	</div>
 </body>
 </html>
