@@ -39,15 +39,15 @@
 </style>
 
 <script type="text/javascript">
-	var movieArr;
+	var searchIndex = 0;
+	var movieArr = [];
 	var lastGenre;
+	var pointer = 0;
 	function hideElements() {
 		$("#logout").hide();
 
 	}
 
-	
-	
 	$(function() {
 
 		$(document).ready(function() {
@@ -92,9 +92,23 @@
 				alert("tschau");
 			});
 		}
+		
+		function reloadCarussel(){
+			switch (pointer) {
+			case 0:
+				loadData("comedy");
+				break;
 
-		function loadData() {
-			alert("hello");
+			default:
+				break;
+			}
+			pointer++;
+			if (pointer == 5){
+				pointer = 0;
+			}
+		}
+
+		function loadData(genre) {
 			$
 					.ajax({
 						headers : {
@@ -102,30 +116,32 @@
 						},
 						type : 'Get',
 						contentType : 'application/json',
-						url : 'http://10.115.1.7:8080/Movieline/rest/movieDetails/movie/',
+						url : 'http://10.115.1.7:8080/13_REST_Movieline/rest/movieDetails/movie/genre/'+genre,
 						success : function(data) {
+							movieArr = data.movie;
+							alert(movieArr.length);
 							var html = +"<div class='item' >"
 									+ "<div id='action' class='genre'>"
 									+ "<h3 class='title'>"
-									+ movieArr.genre
+									+ movieArr[0].genre
 									+ "<span class='label label-success pull-right'></span>"
 									+ "</h3>" + "<div class='list-group'>";
 
-							movieArr = data.movie;
 							lastGenre;
 							for (i = 0; i < movieArr.length; i++) {
-								lastGenre = movieArr.genre;
-								while (lastGenre == movieArr.genre) {
+								lastGenre = movieArr[i].genre;
+								//if (lastGenre == movieArr[i].genre) {
 									html = html
 											+ "<a href='#' class='list-group-item'>"
 											+ "<span class='truncate pull-left' id='filmTitle'>"
-											+ movieArr.title
-											+ "</span><span class='badge'>14views</span></a></div></div></div>";
-								}
+											+ movieArr[i].titel
+											+ "</span><span class='badge'>14views</span></a>";
+								//}
 								lastGenre = movieArr.genre;
-								i = movieArr.length;
+								//i = movieArr.length;
 							}
-							//html = html + "</tr>";
+							html = html + "</div></div></div>";
+							alert(html);
 							$("#data").html(html);
 
 							//console.log(data);
@@ -136,60 +152,59 @@
 						}
 					});
 		}
+		
+		//Realtime Search function of Table
+	    var activeSystemClass = $('.list-group-item.active');
+
+	    //something is entered in search form
+	    $('#system-search').keyup( function() {
+	    	var addedQuery = false;
+	    	searchIndex++;
+	       var that = this;
+	        // affect all table rows on in systems table
+	        var tableBody = $('.table-list-search tbody');
+	        var tableRowsClass = $('.table-list-search tbody tr');
+	        $('.search-sf').remove();
+	        tableRowsClass.each( function(i, val) {
+	        
+	            //Lower text for case insensitive
+	            var rowText = $(val).text().toLowerCase();
+	            var inputText = $(that).val().toLowerCase();
+	            
+	            if(inputText != '')
+	            {
+	                $('.search-query-sf').remove();
+	                tableBody.prepend('<tr class="search-query-sf"><td colspan="6"><strong>Searching for: "'
+	                    + $(that).val()
+	                    + '"</strong></td></tr>');
+	            }
+	            else
+	            {
+	                $('.search-query-sf').remove();
+	            }
+
+	            if( rowText.indexOf( inputText ) == -1 )
+	            {
+	                //hide rows
+	                tableRowsClass.eq(i).hide();
+	                
+	            }
+	            else
+	            {
+	                $('.search-sf').remove();
+	                tableRowsClass.eq(i).show();
+	            }
+	        });
+	        //all tr elements are hidden
+	        if(tableRowsClass.children(':visible').length == 0)
+	        {
+	            tableBody.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
+	        }
+	    });
+		
 	});
-	
-	
-	
-	//Realtime Search function of Table
-    var activeSystemClass = $('.list-group-item.active');
 
-    //something is entered in search form
-    $('#system-search').keyup( function() {
-       var that = this;
-        // affect all table rows on in systems table
-        var tableBody = $('.table-list-search tbody');
-        var tableRowsClass = $('.table-list-search tbody tr');
-        $('.search-sf').remove();
-        tableRowsClass.each( function(i, val) {
-        
-            //Lower text for case insensitive
-            var rowText = $(val).text().toLowerCase();
-            var inputText = $(that).val().toLowerCase();
-            
-            if (hasWhiteSpace(inputText)) {
-				alert("true");
-			}
-            
-            if(inputText != '')
-            {
-                $('.search-query-sf').remove();
-                tableBody.prepend('<tr class="search-query-sf"><td colspan="6"><strong>Searching for: "'
-                    + $(that).val()
-                    + '"</strong></td></tr>');
-            }
-            else
-            {
-                $('.search-query-sf').remove();
-            }
-
-            if( rowText.indexOf( inputText ) == -1 )
-            {
-                //hide rows
-                tableRowsClass.eq(i).hide();
-                
-            }
-            else
-            {
-                $('.search-sf').remove();
-                tableRowsClass.eq(i).show();
-            }
-        });
-        //all tr elements are hidden
-        if(tableRowsClass.children(':visible').length == 0)
-        {
-            tableBody.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
-        }
-    });
+	
 </script>
 </head>
 <body>
@@ -264,7 +279,7 @@
 					</table>
 				</div>
 				<div class="item active">
-					<table>
+					<table class="table table-list-search">
 						<tbody>
 							<tr id="tableRow_1">
 								<td>Them Hoes</td>
@@ -282,75 +297,6 @@
 									clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
 									dolor sit amet.</td>
 								<td>Some Fags</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="item">
-					<table>
-						<tbody>
-							<tr id="tableRow_2">
-								<td>Racing Grid eXtReME</td>
-								<td>Hardcore Race</td>
-								<td>1752</td>
-								<td class="infoTD">Lorem ipsum dolor sit amet, consetetur
-									sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-									labore et dolore magna aliquyam erat, sed diam voluptua. At
-									vero eos et accusam et justo duo dolores et ea rebum. Stet
-									clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-									dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-									sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-									labore et dolore magna aliquyam erat, sed diam voluptua. At
-									vero eos et accusam et justo duo dolores et ea rebum. Stet
-									clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-									dolor sit amet.</td>
-								<td>Some more Fags</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="item">
-					<table>
-						<tbody>
-							<tr id="tableRow_3">
-								<td>Fishing Lies Within</td>
-								<td>Hardcore XXX Documentray</td>
-								<td>2202</td>
-								<td class="infoTD">Lorem ipsum dolor sit amet, consetetur
-									sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-									labore et dolore magna aliquyam erat, sed diam voluptua. At
-									vero eos et accusam et justo duo dolores et ea rebum. Stet
-									clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-									dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-									sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-									labore et dolore magna aliquyam erat, sed diam voluptua. At
-									vero eos et accusam et justo duo dolores et ea rebum. Stet
-									clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-									dolor sit amet.</td>
-								<td>Some stupid Fags</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="item">
-					<table>
-						<tbody>
-							<tr id="tableRow_4">
-								<td>Milos in the Hawt</td>
-								<td>Hardcore Action Sheit</td>
-								<td>2016</td>
-								<td class="infoTD">Lorem ipsum dolor sit amet, consetetur
-									sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-									labore et dolore magna aliquyam erat, sed diam voluptua. At
-									vero eos et accusam et justo duo dolores et ea rebum. Stet
-									clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-									dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-									sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-									labore et dolore magna aliquyam erat, sed diam voluptua. At
-									vero eos et accusam et justo duo dolores et ea rebum. Stet
-									clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-									dolor sit amet.</td>
-								<td>The bals Fag</td>
 							</tr>
 						</tbody>
 					</table>
