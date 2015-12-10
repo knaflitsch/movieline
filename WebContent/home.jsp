@@ -187,33 +187,57 @@
 			</ul>
 		</div>
 	</div>
-	<div id="detailBtn">
-		<div class="mockup-content">
-			<div
-				class="morph-button morph-button-modal morph-button-modal-1 morph-button-fixed">
-				<button type="button" class="btn btn-info">Details</button>
-				<div class="morph-content">
-					<div>
-						<div class="content-style-text">
-							<span class="icon icon-close">Close the dialog</span>
-							<h2>Informations</h2>
-							<p>Fill in some informations about the movie!!</p>
-							<p>
-								<input id="terms" type="checkbox" /><label for="terms"></label>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- morph-button -->
-		</div>
-		<!-- /form-mockup -->
-		</section>
+
 	</div>
-	<!-- /container -->
-	<script src="res/js/classie.js"></script>
-	<script src="res/js/uiMorphingButton_fixed.js"></script>
-	<script>
+	<div class="carousel">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+				<li data-target="#myCarousel" data-slide-to="3"></li>
+			</ol>
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox">
+				<div class="item active"></div>
+
+				<div class="item">
+
+					<table>
+						<tr>
+							<td><p>Hallo</p></td>
+						</tr>
+						<tr>
+							<td><p>Hallo</p></td>
+							<td><p>Hallo</p></td>
+							<td><p>Hallo</p></td>
+							<td><p>
+								<div id="detailBtn">
+									<div class="mockup-content">
+										<div
+											class="morph-button morph-button-modal morph-button-modal-1 morph-button-fixed">
+											<button type="button" class="btn btn-info">Details</button>
+											<div class="morph-content">
+												<div>
+													<div class="content-style-text">
+														<span class="icon icon-close">Close the dialog</span>
+														<h2>Informations</h2>
+														<p>Fill in some informations about the movie!!</p>
+														<p>
+															<input id="terms" type="checkbox" /><label for="terms"></label>
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- morph-button -->
+									</div>
+									<!-- /form-mockup -->
+									</section>
+								</div> <!-- /container --> <script src="res/js/classie.js"></script> <script
+									src="res/js/uiMorphingButton_fixed.js"></script> <script>
 			(function() {	
 				var docElem = window.document.documentElement, didScroll, scrollPosition;
 
@@ -275,45 +299,36 @@
 				} );
 			})();
 		</script>
-	</div>
-	</div>
-	<div class="carousel">
-		<div id="myCarousel" class="carousel slide" data-ride="carousel">
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
-				<li data-target="#myCarousel" data-slide-to="3"></li>
-			</ol>
+								</p></td>
+						</tr>
+						<tr>
+							<td><p>Hallo</p></td>
+						</tr>
+						<tr>
+							<td><p>Hallo</p></td>
+						</tr>
 
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox">
-				<div class="item active">
-				
-				</div>
-
-				<div class="item">hallo</div>
-
-				<div class="item">he</div>
-
-				<div class="item">ho</div>
+					</table>
 			</div>
 
-			<!-- Left and right controls -->
-			<a class="left carousel-control" href="#myCarousel" role="button"
-				data-slide="prev"> <span
-				class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a> <a class="right carousel-control" href="#myCarousel" role="button"
-				data-slide="next"> <span
-				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
+			<div class="item">he</div>
+
+			<div class="item">ho</div>
 		</div>
 
-		<br>
-		<div id="footer" >© Team Fenster and Sam</div>
+		<!-- Left and right controls -->
+		<a class="left carousel-control" href="#myCarousel" role="button"
+			data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"
+			aria-hidden="true"></span> <span class="sr-only">Previous</span>
+		</a> <a class="right carousel-control" href="#myCarousel" role="button"
+			data-slide="next"> <span
+			class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+
+	<br>
+	<div id="footer">© Team Fenster and Sam</div>
 	</div>
 </body>
 </html>

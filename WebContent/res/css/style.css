@@ -46,3 +46,8 @@ body {
 .navbar{
 	margin-bottom: 0px;
 }
+
+.item{
+	margin-left:300px;
+	margin-top:20px;
+}
