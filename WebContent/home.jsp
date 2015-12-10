@@ -24,15 +24,12 @@
 <link href="res/css/style.css" rel="stylesheet">
 <link href="res/css/bootstrap.min.css" rel="stylesheet">
 <link href="res/css/carousel.css" rel="stylesheet">
-<<<<<<< HEAD
 <link href="res/css/component.css" rel="stylesheet">
 <link href="res/css/content.css" rel="stylesheet">
 <link href="res/css/demo.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css"
 	href="./res/css/bootstrap.min.css">
 <link href="res/css/normalize.css" rel="stylesheet">
-=======
->>>>>>> e4d4ed4ade696c5e0062ade1dabe2f9f91355991
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -127,13 +124,10 @@
 						},
 						type : 'Get',
 						contentType : 'application/json',
-<<<<<<< HEAD
 						type : 'GET',
 						contentType : 'application/json',
 						url : 'http://10.115.1.7:8080/Movieline/rest/movieDetails/movie/',
-=======
 						url : 'http://10.115.1.7:8080/13_REST_Movieline/rest/movieDetails/movie/genre/'+genre,
->>>>>>> e4d4ed4ade696c5e0062ade1dabe2f9f91355991
 						success : function(data) {
 							movieArr = data.movie;
 							alert(movieArr.length);
@@ -220,10 +214,6 @@
 	    });
 		
 	});
-<<<<<<< HEAD
-	
-	
-	
 	//Realtime Search function of Table
     var activeSystemClass = $('.list-group-item.active');
 
@@ -274,10 +264,6 @@
             tableBody.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
         }
     });
-=======
-
-	
->>>>>>> e4d4ed4ade696c5e0062ade1dabe2f9f91355991
 </script>
 </head>
 <body>
@@ -318,9 +304,6 @@
 
 			</ul>
 		</div>
-<<<<<<< HEAD
-
-=======
 		<div id=adminTable class="col-md-2">
 			<div class="input-group">
 				<input class="form-control" id="system-search" name="q"
@@ -328,7 +311,6 @@
 			</div>
 			<div style="margin-top: 5px;" id="componentsGlyph"></div>
 		</div>
->>>>>>> e4d4ed4ade696c5e0062ade1dabe2f9f91355991
 	</div>
 
 	<div class="carousel">
@@ -343,7 +325,6 @@
 			</ol>
 
 			<!-- Wrapper for slides -->
-<<<<<<< HEAD
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
 					<table>
@@ -560,8 +541,6 @@
 
 				<div class="item">ho</div>
 			</div>
-
-=======
 			<div class="carousel-inner" role="listbox" id="data">
 				<div id="table" class="col-md-10">
 					<table id="data" class="table table-list-search">
@@ -604,9 +583,6 @@
 			</div>
 
 			<div id="footer">©</div>
-
-
->>>>>>> e4d4ed4ade696c5e0062ade1dabe2f9f91355991
 			<!-- Left and right controls -->
 			<a class="left carousel-control" href="#myCarousel" role="button"
 				data-slide="prev"> <span
@@ -618,11 +594,7 @@
 				<span class="sr-only">Next</span>
 			</a>
 		</div>
-<<<<<<< HEAD
-
 		<br>
-=======
->>>>>>> e4d4ed4ade696c5e0062ade1dabe2f9f91355991
 		<div id="footer">© Team Fenster and Sam</div>
 	</div>
 </body>
