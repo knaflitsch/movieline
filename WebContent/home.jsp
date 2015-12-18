@@ -15,27 +15,25 @@
 <script src="res/js/jquery-ui.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="res/css/jquery-ui.min.css">
 <link
-	href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap">
-<link
 	href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"
 	rel="stylesheet">
 <link href="res/assets/docs.css" rel="stylesheet">
 <link href="res/css/style.css" rel="stylesheet">
-<link href="res/css/bootstrap.min.css" rel="stylesheet">
 <link href="res/css/carousel.css" rel="stylesheet">
 <link href="res/css/component.css" rel="stylesheet">
 <link href="res/css/content.css" rel="stylesheet">
 <link href="res/css/demo.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css"
-	href="./res/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./res/css/bootstrap.min.css">
 <link href="res/css/normalize.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./res/js/modernizr.custom.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
+<script
+	src="./res/js/bootstrap.min.js"></script>
+	
+<script src="./res/js/modernizr.custom.js"></script>
 <style>
+
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
 	width: 70%;
 	margin: auto;
@@ -272,8 +270,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#"><img
-				src="./res/img/movielinelogo.png" id="logo"></a>
+			<a class="navbar-brand" href="#"><img src="./res/img/movielinelogo.png" id="logo"></a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -305,7 +302,6 @@
 		</div>
 	</div>
 	<div class="carousel">
-		<br>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -329,8 +325,7 @@
 							<td><p>
 								<div id="detailBtn">
 									<div class="mockup-content">
-										<div
-											class="morph-button morph-button-modal morph-button-modal-1 morph-button-fixed">
+										<div class="morph-button morph-button-modal morph-button-modal-1 morph-button-fixed">
 											<button type="button" class="btn btn-info">Details</button>
 											<div class="morph-content">
 												<div>
@@ -347,94 +342,102 @@
 										</div>
 										<!-- morph-button -->
 									</div>
-
 									<!-- /form-mockup -->
-								</div> <!-- /container --> <script src="./res/js/classie.js"></script>
-								<script src="./res/js/uiMorphingButton_fixed.js"></script> <script>
-									(function() {
-										var docElem = window.document.documentElement, didScroll, scrollPosition;
+									</section>
+								</div> <!-- /container --> <script src="./res/js/classie.js"></script> 
+								<script src="./res/js/uiMorphingButton_fixed.js"></script> 
+								<script>
+										(function() {
+											var docElem = window.document.documentElement, didScroll, scrollPosition;
 
-										// trick to prevent scrolling when opening/closing button
-										function noScrollFn() {
-											window
-													.scrollTo(
-															scrollPosition ? scrollPosition.x
-																	: 0,
-															scrollPosition ? scrollPosition.y
-																	: 0);
-										}
-
-										function noScroll() {
-											window.removeEventListener(
-													'scroll', scrollHandler);
-											window.addEventListener('scroll',
-													noScrollFn);
-										}
-
-										function scrollFn() {
-											window.addEventListener('scroll',
-													scrollHandler);
-										}
-
-										function canScroll() {
-											window.removeEventListener(
-													'scroll', noScrollFn);
-											scrollFn();
-										}
-
-										function scrollHandler() {
-											if (!didScroll) {
-												didScroll = true;
-												setTimeout(function() {
-													scrollPage();
-												}, 60);
+											// trick to prevent scrolling when opening/closing button
+											function noScrollFn() {
+												window
+														.scrollTo(
+																scrollPosition ? scrollPosition.x
+																		: 0,
+																scrollPosition ? scrollPosition.y
+																		: 0);
 											}
-										}
-										;
 
-										function scrollPage() {
-											scrollPosition = {
-												x : window.pageXOffset
-														|| docElem.scrollLeft,
-												y : window.pageYOffset
-														|| docElem.scrollTop
-											};
-											didScroll = false;
-										}
-										;
+											function noScroll() {
+												window
+														.removeEventListener(
+																'scroll',
+																scrollHandler);
+												window.addEventListener(
+														'scroll', noScrollFn);
+											}
 
-										scrollFn();
+											function scrollFn() {
+												window
+														.addEventListener(
+																'scroll',
+																scrollHandler);
+											}
 
-										var UIBtnn = new UIMorphingButton(
-												document
-														.querySelector('.morph-button'),
-												{
-													closeEl : '.icon-close',
-													onBeforeOpen : function() {
-														// don't allow to scroll
-														noScroll();
-													},
-													onAfterOpen : function() {
-														// can scroll again
-														canScroll();
-													},
-													onBeforeClose : function() {
-														// don't allow to scroll
-														noScroll();
-													},
-													onAfterClose : function() {
-														// can scroll again
-														canScroll();
-													}
-												});
+											function canScroll() {
+												window.removeEventListener(
+														'scroll', noScrollFn);
+												scrollFn();
+											}
 
-										document.getElementById('terms')
-												.addEventListener('change',
-														function() {
-															UIBtnn.toggle();
-														});
-									})();
-								</script></td>
+											function scrollHandler() {
+												if (!didScroll) {
+													didScroll = true;
+													setTimeout(function() {
+														scrollPage();
+													}, 60);
+												}
+											}
+											;
+
+											function scrollPage() {
+												scrollPosition = {
+													x : window.pageXOffset
+															|| docElem.scrollLeft,
+													y : window.pageYOffset
+															|| docElem.scrollTop
+												};
+												didScroll = false;
+											}
+											;
+
+											scrollFn();
+
+											var UIBtnn = new UIMorphingButton(
+													document
+															.querySelector('.morph-button'),
+													{
+														closeEl : '.icon-close',
+														onBeforeOpen : function() {
+															// don't allow to scroll
+															noScroll();
+														},
+														onAfterOpen : function() {
+															// can scroll again
+															canScroll();
+														},
+														onBeforeClose : function() {
+															// don't allow to scroll
+															noScroll();
+														},
+														onAfterClose : function() {
+															// can scroll again
+															canScroll();
+														}
+													});
+
+											document
+													.getElementById('terms')
+													.addEventListener(
+															'change',
+															function() {
+																UIBtnn.toggle();
+															});
+										})();
+									</script>
+								</td>
 						</tr>
 						<tr>
 							<td><p>Hallo</p></td>
