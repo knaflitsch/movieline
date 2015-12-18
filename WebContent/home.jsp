@@ -54,8 +54,6 @@
 
 	}
 
-	
-	
 	$(function() {
 
 		$(document).ready(function() {
@@ -100,8 +98,8 @@
 				alert("tschau");
 			});
 		}
-		
-		function reloadCarussel(){
+
+		function reloadCarussel() {
 			switch (pointer) {
 			case 0:
 				loadData("comedy");
@@ -111,7 +109,7 @@
 				break;
 			}
 			pointer++;
-			if (pointer == 5){
+			if (pointer == 5) {
 				pointer = 0;
 			}
 		}
@@ -127,7 +125,8 @@
 						type : 'GET',
 						contentType : 'application/json',
 						url : 'http://10.115.1.7:8080/Movieline/rest/movieDetails/movie/',
-						url : 'http://10.115.1.7:8080/13_REST_Movieline/rest/movieDetails/movie/genre/'+genre,
+						url : 'http://10.115.1.7:8080/13_REST_Movieline/rest/movieDetails/movie/genre/'
+								+ genre,
 						success : function(data) {
 							movieArr = data.movie;
 							alert(movieArr.length);
@@ -142,11 +141,11 @@
 							for (i = 0; i < movieArr.length; i++) {
 								lastGenre = movieArr[i].genre;
 								//if (lastGenre == movieArr[i].genre) {
-									html = html
-											+ "<a href='#' class='list-group-item'>"
-											+ "<span class='truncate pull-left' id='filmTitle'>"
-											+ movieArr[i].titel
-											+ "</span><span class='badge'>14views</span></a>";
+								html = html
+										+ "<a href='#' class='list-group-item'>"
+										+ "<span class='truncate pull-left' id='filmTitle'>"
+										+ movieArr[i].titel
+										+ "</span><span class='badge'>14views</span></a>";
 								//}
 								lastGenre = movieArr.genre;
 								//i = movieArr.length;
@@ -163,107 +162,105 @@
 						}
 					});
 		}
-		
+
 		//Realtime Search function of Table
-	    var activeSystemClass = $('.list-group-item.active');
+		var activeSystemClass = $('.list-group-item.active');
 
-	    //something is entered in search form
-	    $('#system-search').keyup( function() {
-	    	var addedQuery = false;
-	    	searchIndex++;
-	       var that = this;
-	        // affect all table rows on in systems table
-	        var tableBody = $('.table-list-search tbody');
-	        var tableRowsClass = $('.table-list-search tbody tr');
-	        $('.search-sf').remove();
-	        tableRowsClass.each( function(i, val) {
-	        
-	            //Lower text for case insensitive
-	            var rowText = $(val).text().toLowerCase();
-	            var inputText = $(that).val().toLowerCase();
-	            
-	            if(inputText != '')
-	            {
-	                $('.search-query-sf').remove();
-	                tableBody.prepend('<tr class="search-query-sf"><td colspan="6"><strong>Searching for: "'
-	                    + $(that).val()
-	                    + '"</strong></td></tr>');
-	            }
-	            else
-	            {
-	                $('.search-query-sf').remove();
-	            }
+		//something is entered in search form
+		$('#system-search')
+				.keyup(
+						function() {
+							var addedQuery = false;
+							searchIndex++;
+							var that = this;
+							// affect all table rows on in systems table
+							var tableBody = $('.table-list-search tbody');
+							var tableRowsClass = $('.table-list-search tbody tr');
+							$('.search-sf').remove();
+							tableRowsClass
+									.each(function(i, val) {
 
-	            if( rowText.indexOf( inputText ) == -1 )
-	            {
-	                //hide rows
-	                tableRowsClass.eq(i).hide();
-	                
-	            }
-	            else
-	            {
-	                $('.search-sf').remove();
-	                tableRowsClass.eq(i).show();
-	            }
-	        });
-	        //all tr elements are hidden
-	        if(tableRowsClass.children(':visible').length == 0)
-	        {
-	            tableBody.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
-	        }
-	    });
-		
+										//Lower text for case insensitive
+										var rowText = $(val).text()
+												.toLowerCase();
+										var inputText = $(that).val()
+												.toLowerCase();
+
+										if (inputText != '') {
+											$('.search-query-sf').remove();
+											tableBody
+													.prepend('<tr class="search-query-sf"><td colspan="6"><strong>Searching for: "'
+															+ $(that).val()
+															+ '"</strong></td></tr>');
+										} else {
+											$('.search-query-sf').remove();
+										}
+
+										if (rowText.indexOf(inputText) == -1) {
+											//hide rows
+											tableRowsClass.eq(i).hide();
+
+										} else {
+											$('.search-sf').remove();
+											tableRowsClass.eq(i).show();
+										}
+									});
+							//all tr elements are hidden
+							if (tableRowsClass.children(':visible').length == 0) {
+								tableBody
+										.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
+							}
+						});
+
 	});
 	//Realtime Search function of Table
-    var activeSystemClass = $('.list-group-item.active');
+	var activeSystemClass = $('.list-group-item.active');
 
-    //something is entered in search form
-    $('#system-search').keyup( function() {
-       var that = this;
-        // affect all table rows on in systems table
-        var tableBody = $('.table-list-search tbody');
-        var tableRowsClass = $('.table-list-search tbody tr');
-        $('.search-sf').remove();
-        tableRowsClass.each( function(i, val) {
-        
-            //Lower text for case insensitive
-            var rowText = $(val).text().toLowerCase();
-            var inputText = $(that).val().toLowerCase();
-            
-            if (hasWhiteSpace(inputText)) {
-				alert("true");
-			}
-            
-            if(inputText != '')
-            {
-                $('.search-query-sf').remove();
-                tableBody.prepend('<tr class="search-query-sf"><td colspan="6"><strong>Searching for: "'
-                    + $(that).val()
-                    + '"</strong></td></tr>');
-            }
-            else
-            {
-                $('.search-query-sf').remove();
-            }
+	//something is entered in search form
+	$('#system-search')
+			.keyup(
+					function() {
+						var that = this;
+						// affect all table rows on in systems table
+						var tableBody = $('.table-list-search tbody');
+						var tableRowsClass = $('.table-list-search tbody tr');
+						$('.search-sf').remove();
+						tableRowsClass
+								.each(function(i, val) {
 
-            if( rowText.indexOf( inputText ) == -1 )
-            {
-                //hide rows
-                tableRowsClass.eq(i).hide();
-                
-            }
-            else
-            {
-                $('.search-sf').remove();
-                tableRowsClass.eq(i).show();
-            }
-        });
-        //all tr elements are hidden
-        if(tableRowsClass.children(':visible').length == 0)
-        {
-            tableBody.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
-        }
-    });
+									//Lower text for case insensitive
+									var rowText = $(val).text().toLowerCase();
+									var inputText = $(that).val().toLowerCase();
+
+									if (hasWhiteSpace(inputText)) {
+										alert("true");
+									}
+
+									if (inputText != '') {
+										$('.search-query-sf').remove();
+										tableBody
+												.prepend('<tr class="search-query-sf"><td colspan="6"><strong>Searching for: "'
+														+ $(that).val()
+														+ '"</strong></td></tr>');
+									} else {
+										$('.search-query-sf').remove();
+									}
+
+									if (rowText.indexOf(inputText) == -1) {
+										//hide rows
+										tableRowsClass.eq(i).hide();
+
+									} else {
+										$('.search-sf').remove();
+										tableRowsClass.eq(i).show();
+									}
+								});
+						//all tr elements are hidden
+						if (tableRowsClass.children(':visible').length == 0) {
+							tableBody
+									.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
+						}
+					});
 </script>
 </head>
 <body>
@@ -304,15 +301,7 @@
 
 			</ul>
 		</div>
-		<div id=adminTable class="col-md-2">
-			<div class="input-group">
-				<input class="form-control" id="system-search" name="q"
-					placeholder="Suche eingeben" required>
-			</div>
-			<div style="margin-top: 5px;" id="componentsGlyph"></div>
-		</div>
 	</div>
-
 	<div class="carousel">
 		<br>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -360,67 +349,96 @@
 									</section>
 								</div> <!-- /container --> <script src="res/js/classie.js"></script> <script
 									src="res/js/uiMorphingButton_fixed.js"></script> <script>
-			(function() {	
-				var docElem = window.document.documentElement, didScroll, scrollPosition;
+										(function() {
+											var docElem = window.document.documentElement, didScroll, scrollPosition;
 
-				// trick to prevent scrolling when opening/closing button
-				function noScrollFn() {
-					window.scrollTo( scrollPosition ? scrollPosition.x : 0, scrollPosition ? scrollPosition.y : 0 );
-				}
+											// trick to prevent scrolling when opening/closing button
+											function noScrollFn() {
+												window
+														.scrollTo(
+																scrollPosition ? scrollPosition.x
+																		: 0,
+																scrollPosition ? scrollPosition.y
+																		: 0);
+											}
 
-				function noScroll() {
-					window.removeEventListener( 'scroll', scrollHandler );
-					window.addEventListener( 'scroll', noScrollFn );
-				}
+											function noScroll() {
+												window
+														.removeEventListener(
+																'scroll',
+																scrollHandler);
+												window.addEventListener(
+														'scroll', noScrollFn);
+											}
 
-				function scrollFn() {
-					window.addEventListener( 'scroll', scrollHandler );
-				}
+											function scrollFn() {
+												window
+														.addEventListener(
+																'scroll',
+																scrollHandler);
+											}
 
-				function canScroll() {
-					window.removeEventListener( 'scroll', noScrollFn );
-					scrollFn();
-				}
+											function canScroll() {
+												window.removeEventListener(
+														'scroll', noScrollFn);
+												scrollFn();
+											}
 
-				function scrollHandler() {
-					if( !didScroll ) {
-						didScroll = true;
-						setTimeout( function() { scrollPage(); }, 60 );
-					}
-				};
+											function scrollHandler() {
+												if (!didScroll) {
+													didScroll = true;
+													setTimeout(function() {
+														scrollPage();
+													}, 60);
+												}
+											}
+											;
 
-				function scrollPage() {
-					scrollPosition = { x : window.pageXOffset || docElem.scrollLeft, y : window.pageYOffset || docElem.scrollTop };
-					didScroll = false;
-				};
+											function scrollPage() {
+												scrollPosition = {
+													x : window.pageXOffset
+															|| docElem.scrollLeft,
+													y : window.pageYOffset
+															|| docElem.scrollTop
+												};
+												didScroll = false;
+											}
+											;
 
-				scrollFn();
+											scrollFn();
 
-				var UIBtnn = new UIMorphingButton( document.querySelector( '.morph-button' ), {
-					closeEl : '.icon-close',
-					onBeforeOpen : function() {
-						// don't allow to scroll
-						noScroll();
-					},
-					onAfterOpen : function() {
-						// can scroll again
-						canScroll();
-					},
-					onBeforeClose : function() {
-						// don't allow to scroll
-						noScroll();
-					},
-					onAfterClose : function() {
-						// can scroll again
-						canScroll();
-					}
-				} );
+											var UIBtnn = new UIMorphingButton(
+													document
+															.querySelector('.morph-button'),
+													{
+														closeEl : '.icon-close',
+														onBeforeOpen : function() {
+															// don't allow to scroll
+															noScroll();
+														},
+														onAfterOpen : function() {
+															// can scroll again
+															canScroll();
+														},
+														onBeforeClose : function() {
+															// don't allow to scroll
+															noScroll();
+														},
+														onAfterClose : function() {
+															// can scroll again
+															canScroll();
+														}
+													});
 
-				document.getElementById( 'terms' ).addEventListener( 'change', function() {
-					UIBtnn.toggle();
-				} );
-			})();
-		</script>
+											document
+													.getElementById('terms')
+													.addEventListener(
+															'change',
+															function() {
+																UIBtnn.toggle();
+															});
+										})();
+									</script>
 								</p></td>
 						</tr>
 						<tr>
@@ -432,9 +450,7 @@
 
 					</table>
 				</div>
-
-				<div class="item">
-					<div class="carousel-inner" role="listbox" id="data">
+				<div class="item">					
 						<div id="table" class="col-md-10">
 							<table id="data" class="table table-list-search">
 								<thead>
@@ -449,91 +465,7 @@
 									</tr>
 								</thead>
 							</table>
-						</div>
-							<table>
-								<tbody>
-									<tr id="tableRow_1">
-										<td>Them Hoes</td>
-										<td>Hardcore XXX</td>
-										<td>1999</td>
-										<td class="infoTD">Lorem ipsum dolor sit amet, consetetur
-											sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-											labore et dolore magna aliquyam erat, sed diam voluptua. At
-											vero eos et accusam et justo duo dolores et ea rebum. Stet
-											clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-											dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-											sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-											labore et dolore magna aliquyam erat, sed diam voluptua. At
-											vero eos et accusam et justo duo dolores et ea rebum. Stet
-											clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-											dolor sit amet.</td>
-										<td>Some Fags</td>
-									</tr>
-								</tbody>
-							</table>
-							<table>
-								<tbody>
-									<tr id="tableRow_2">
-										<td>Racing Grid eXtReME</td>
-										<td>Hardcore Race</td>
-										<td>1752</td>
-										<td class="infoTD">Lorem ipsum dolor sit amet, consetetur
-											sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-											labore et dolore magna aliquyam erat, sed diam voluptua. At
-											vero eos et accusam et justo duo dolores et ea rebum. Stet
-											clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-											dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-											sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-											labore et dolore magna aliquyam erat, sed diam voluptua. At
-											vero eos et accusam et justo duo dolores et ea rebum. Stet
-											clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-											dolor sit amet.</td>
-										<td>Some more Fags</td>
-									</tr>
-								</tbody>
-							</table>
-							<table>
-								<tbody>
-									<tr id="tableRow_3">
-										<td>Fishing Lies Within</td>
-										<td>Hardcore XXX Documentray</td>
-										<td>2202</td>
-										<td class="infoTD">Lorem ipsum dolor sit amet, consetetur
-											sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-											labore et dolore magna aliquyam erat, sed diam voluptua. At
-											vero eos et accusam et justo duo dolores et ea rebum. Stet
-											clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-											dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-											sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-											labore et dolore magna aliquyam erat, sed diam voluptua. At
-											vero eos et accusam et justo duo dolores et ea rebum. Stet
-											clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-											dolor sit amet.</td>
-										<td>Some stupid Fags</td>
-									</tr>
-								</tbody>
-							</table>
-							<table>
-								<tbody>
-									<tr id="tableRow_4">
-										<td>Milos in the Hawt</td>
-										<td>Hardcore Action Sheit</td>
-										<td>2016</td>
-										<td class="infoTD">Lorem ipsum dolor sit amet, consetetur
-											sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-											labore et dolore magna aliquyam erat, sed diam voluptua. At
-											vero eos et accusam et justo duo dolores et ea rebum. Stet
-											clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-											dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-											sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-											labore et dolore magna aliquyam erat, sed diam voluptua. At
-											vero eos et accusam et justo duo dolores et ea rebum. Stet
-											clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-											dolor sit amet.</td>
-										<td>The bals Fag</td>
-									</tr>
-								</tbody>
-							</table>
+
 					</div>
 				</div>
 
@@ -541,47 +473,6 @@
 
 				<div class="item">ho</div>
 			</div>
-			<div class="carousel-inner" role="listbox" id="data">
-				<div id="table" class="col-md-10">
-					<table id="data" class="table table-list-search">
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Genre</th>
-								<th>Release</th>
-								<th>Info</th>
-								<th>Actors</th>
-								<th></th>
-								<th></th>
-							</tr>
-						</thead>
-					</table>
-				</div>
-				<div class="item active">
-					<table class="table table-list-search">
-						<tbody>
-							<tr id="tableRow_1">
-								<td>Them Hoes</td>
-								<td>Hardcore XXX</td>
-								<td>1999</td>
-								<td class="infoTD">Lorem ipsum dolor sit amet, consetetur
-									sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-									labore et dolore magna aliquyam erat, sed diam voluptua. At
-									vero eos et accusam et justo duo dolores et ea rebum. Stet
-									clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-									dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-									sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-									labore et dolore magna aliquyam erat, sed diam voluptua. At
-									vero eos et accusam et justo duo dolores et ea rebum. Stet
-									clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-									dolor sit amet.</td>
-								<td>Some Fags</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-
 			<div id="footer">©</div>
 			<!-- Left and right controls -->
 			<a class="left carousel-control" href="#myCarousel" role="button"
