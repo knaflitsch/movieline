@@ -1,30 +1,41 @@
 body {
 	
 }
+
 .genre {
 	width: 700px;
 	margin: auto;
 	height: 450px;
 }
-.list-group-item{
+
+.list-group-item {
 	height: 50px;
 }
-#userName{
-	width:200px;
+
+#userName {
+	width: 200px;
 }
-#password{
-	width:200px;
+
+#password {
+	width: 200px;
 }
-#loginBtn{
-	widht:200px;
+
+#loginBtn {
+	widht: 200px;
 }
-#logoutBtn{
-	width:200px;
+
+#logoutBtn {
+	width: 200px;
 }
+
+#logo {
+	width: 40%;
+}
+
 #footer {
 	padding-top: 10px;
 	border-top-style: solid;
-	border-top-width:1px;
+	border-top-width: 1px;
 	border-color: #e7e7e7;
 	font-size: 12px;
 	color: black;
@@ -36,26 +47,29 @@ body {
 	bottom: 0px;
 	width: 100%;
 }
-#navbar{
+
+#navbar {
 	border-bottom-style: solid;
-	
-}
-#myCarousel{
-	height:880px;
-}
-.item{
-	margin-left:300px;
-	margin-top:20px;
 }
 
-#adminTable{
-	margin-top:7px;
+#myCarousel {
+	height: 820px;
 }
 
-#table{
-	width:800px;
-	margin-left:400px;
+.item {
+	margin-left: 300px;
+	margin-top: 20px;
 }
-.infoTD{
+
+#adminTable {
+	margin-top: 7px;
+}
+
+#table {
+	width: 800px;
+	margin-left: 400px;
+}
+
+.infoTD {
 	width: 25%;
 }

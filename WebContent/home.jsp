@@ -31,12 +31,10 @@
 	href="./res/css/bootstrap.min.css">
 <link href="res/css/normalize.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="./res/js/modernizr.custom.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 <style>
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
 	width: 70%;
@@ -274,7 +272,8 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Movieline</a>
+			<a class="navbar-brand" href="#"><img
+				src="./res/img/movielinelogo.png" id="logo"></a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -288,15 +287,18 @@
 				<li><a> <input class="form-control" id="system-search"
 						name="q" placeholder="Suche eingeben" required>
 				</a></li>
-				<li><a href="#"> <input id="userName" type="text"
+
+				<li><a> <input id="userName" type="text"
 						class="form-control" name="usr" placeholder="Admin">
 				</a></li>
-				<li><a href="#"><input id="password" type="password"
+
+				<li><a><input id="password" type="password"
 						class="form-control" name="pword" placeholder="Password"
 						required=""> </a></li>
 
 				<li><a href="#">
-						<button id="loginBtn" type="submit">Sign In</button>
+						<button id="loginBtn" type="submit" class="btn btn-info">Sign
+							In</button>
 				</a></li>
 
 			</ul>
@@ -345,101 +347,94 @@
 										</div>
 										<!-- morph-button -->
 									</div>
+
 									<!-- /form-mockup -->
-									</section>
-								</div> <!-- /container --> <script src="res/js/classie.js"></script> <script
-									src="res/js/uiMorphingButton_fixed.js"></script> <script>
-										(function() {
-											var docElem = window.document.documentElement, didScroll, scrollPosition;
+								</div> <!-- /container --> <script src="./res/js/classie.js"></script>
+								<script src="./res/js/uiMorphingButton_fixed.js"></script> <script>
+									(function() {
+										var docElem = window.document.documentElement, didScroll, scrollPosition;
 
-											// trick to prevent scrolling when opening/closing button
-											function noScrollFn() {
-												window
-														.scrollTo(
-																scrollPosition ? scrollPosition.x
-																		: 0,
-																scrollPosition ? scrollPosition.y
-																		: 0);
-											}
+										// trick to prevent scrolling when opening/closing button
+										function noScrollFn() {
+											window
+													.scrollTo(
+															scrollPosition ? scrollPosition.x
+																	: 0,
+															scrollPosition ? scrollPosition.y
+																	: 0);
+										}
 
-											function noScroll() {
-												window
-														.removeEventListener(
-																'scroll',
-																scrollHandler);
-												window.addEventListener(
-														'scroll', noScrollFn);
-											}
+										function noScroll() {
+											window.removeEventListener(
+													'scroll', scrollHandler);
+											window.addEventListener('scroll',
+													noScrollFn);
+										}
 
-											function scrollFn() {
-												window
-														.addEventListener(
-																'scroll',
-																scrollHandler);
-											}
+										function scrollFn() {
+											window.addEventListener('scroll',
+													scrollHandler);
+										}
 
-											function canScroll() {
-												window.removeEventListener(
-														'scroll', noScrollFn);
-												scrollFn();
-											}
-
-											function scrollHandler() {
-												if (!didScroll) {
-													didScroll = true;
-													setTimeout(function() {
-														scrollPage();
-													}, 60);
-												}
-											}
-											;
-
-											function scrollPage() {
-												scrollPosition = {
-													x : window.pageXOffset
-															|| docElem.scrollLeft,
-													y : window.pageYOffset
-															|| docElem.scrollTop
-												};
-												didScroll = false;
-											}
-											;
-
+										function canScroll() {
+											window.removeEventListener(
+													'scroll', noScrollFn);
 											scrollFn();
+										}
 
-											var UIBtnn = new UIMorphingButton(
-													document
-															.querySelector('.morph-button'),
-													{
-														closeEl : '.icon-close',
-														onBeforeOpen : function() {
-															// don't allow to scroll
-															noScroll();
-														},
-														onAfterOpen : function() {
-															// can scroll again
-															canScroll();
-														},
-														onBeforeClose : function() {
-															// don't allow to scroll
-															noScroll();
-														},
-														onAfterClose : function() {
-															// can scroll again
-															canScroll();
-														}
-													});
+										function scrollHandler() {
+											if (!didScroll) {
+												didScroll = true;
+												setTimeout(function() {
+													scrollPage();
+												}, 60);
+											}
+										}
+										;
 
-											document
-													.getElementById('terms')
-													.addEventListener(
-															'change',
-															function() {
-																UIBtnn.toggle();
-															});
-										})();
-									</script>
-								</p></td>
+										function scrollPage() {
+											scrollPosition = {
+												x : window.pageXOffset
+														|| docElem.scrollLeft,
+												y : window.pageYOffset
+														|| docElem.scrollTop
+											};
+											didScroll = false;
+										}
+										;
+
+										scrollFn();
+
+										var UIBtnn = new UIMorphingButton(
+												document
+														.querySelector('.morph-button'),
+												{
+													closeEl : '.icon-close',
+													onBeforeOpen : function() {
+														// don't allow to scroll
+														noScroll();
+													},
+													onAfterOpen : function() {
+														// can scroll again
+														canScroll();
+													},
+													onBeforeClose : function() {
+														// don't allow to scroll
+														noScroll();
+													},
+													onAfterClose : function() {
+														// can scroll again
+														canScroll();
+													}
+												});
+
+										document.getElementById('terms')
+												.addEventListener('change',
+														function() {
+															UIBtnn.toggle();
+														});
+									})();
+								</script></td>
 						</tr>
 						<tr>
 							<td><p>Hallo</p></td>
@@ -450,21 +445,21 @@
 
 					</table>
 				</div>
-				<div class="item">					
-						<div id="table" class="col-md-10">
-							<table id="data" class="table table-list-search">
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Genre</th>
-										<th>Release</th>
-										<th>Info</th>
-										<th>Actors</th>
-										<th></th>
-										<th></th>
-									</tr>
-								</thead>
-							</table>
+				<div class="item">
+					<div id="table" class="col-md-10">
+						<table id="data" class="table table-list-search">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Genre</th>
+									<th>Release</th>
+									<th>Info</th>
+									<th>Actors</th>
+									<th></th>
+									<th></th>
+								</tr>
+							</thead>
+						</table>
 
 					</div>
 				</div>
