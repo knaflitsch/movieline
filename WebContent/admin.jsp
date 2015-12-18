@@ -30,6 +30,7 @@ $(document).ready(function() {
 	$("#btnBack").click(function(){
 			pointer = pointer - 20;
 			$("#data").fadeOut('slow', function() {
+				
 
 			});
 		});
