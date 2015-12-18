@@ -12,10 +12,6 @@
 <meta name="author" content="">
 <link rel="icon" href="res/images/thet.png">
 <script src="res/js/jquery.js" type="text/javascript"></script>
-<script src="res/js/classie.js" type="text/javascript"></script>
-<script src="res/js/modernizr.custom.js" type="text/javascript"></script>
-<script src="res/js/uiMorphingButton_fixed.js" type="text/javascript"></script>
-<script src="res/js/uiMorphingButton_inflow.js" type="text/javascript"></script>
 <script src="res/js/jquery-ui.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="res/css/jquery-ui.min.css">
 <link
@@ -26,19 +22,19 @@
 	rel="stylesheet">
 <link href="res/assets/docs.css" rel="stylesheet">
 <link href="res/css/style.css" rel="stylesheet">
-<link href="res/css/bootstrap.css" rel="stylesheet">
+<link href="res/css/bootstrap.min.css" rel="stylesheet">
 <link href="res/css/carousel.css" rel="stylesheet">
 <link href="res/css/component.css" rel="stylesheet">
 <link href="res/css/content.css" rel="stylesheet">
 <link href="res/css/demo.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css"
+	href="./res/css/bootstrap.min.css">
 <link href="res/css/normalize.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="./res/js/modernizr.custom.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 <style>
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
 	width: 70%;
@@ -47,8 +43,10 @@
 </style>
 
 <script type="text/javascript">
-	var movieArr;
+	var searchIndex = 0;
+	var movieArr = [];
 	var lastGenre;
+	var pointer = 0;
 	function hideElements() {
 		$("#logout").hide();
 
@@ -99,42 +97,59 @@
 			});
 		}
 
-		function loadData() {
-			alert("hello");
+		function reloadCarussel() {
+			switch (pointer) {
+			case 0:
+				loadData("comedy");
+				break;
+
+			default:
+				break;
+			}
+			pointer++;
+			if (pointer == 5) {
+				pointer = 0;
+			}
+		}
+
+		function loadData(genre) {
 			$
 					.ajax({
 						headers : {
 							Accept : 'application/json'
 						},
 						type : 'Get',
-							Accept : 'application/json',
-						},
 						contentType : 'application/json',
 						type : 'GET',
+						contentType : 'application/json',
 						url : 'http://10.115.1.7:8080/Movieline/rest/movieDetails/movie/',
+						url : 'http://10.115.1.7:8080/13_REST_Movieline/rest/movieDetails/movie/genre/'
+								+ genre,
 						success : function(data) {
+							movieArr = data.movie;
+							alert(movieArr.length);
 							var html = +"<div class='item' >"
 									+ "<div id='action' class='genre'>"
 									+ "<h3 class='title'>"
-									+ movieArr.genre
+									+ movieArr[0].genre
 									+ "<span class='label label-success pull-right'></span>"
 									+ "</h3>" + "<div class='list-group'>";
 
-							movieArr = data.movie;
 							lastGenre;
 							for (i = 0; i < movieArr.length; i++) {
+								lastGenre = movieArr[i].genre;
+								//if (lastGenre == movieArr[i].genre) {
+								html = html
+										+ "<a href='#' class='list-group-item'>"
+										+ "<span class='truncate pull-left' id='filmTitle'>"
+										+ movieArr[i].titel
+										+ "</span><span class='badge'>14views</span></a>";
+								//}
 								lastGenre = movieArr.genre;
-								while (lastGenre == movieArr.genre) {
-									html = html
-											+ "<a href='#' class='list-group-item'>"
-											+ "<span class='truncate pull-left' id='filmTitle'>"
-											+ movieArr.title
-											+ "</span><span class='badge'>14views</span></a></div></div></div>";
-								}
-								lastGenre = movieArr.genre;
-								i = movieArr.length;
+								//i = movieArr.length;
 							}
-							//html = html + "</tr>";
+							html = html + "</div></div></div>";
+							alert(html);
 							$("#data").html(html);
 
 							//console.log(data);
@@ -145,7 +160,105 @@
 						}
 					});
 		}
+
+		//Realtime Search function of Table
+		var activeSystemClass = $('.list-group-item.active');
+
+		//something is entered in search form
+		$('#system-search')
+				.keyup(
+						function() {
+							var addedQuery = false;
+							searchIndex++;
+							var that = this;
+							// affect all table rows on in systems table
+							var tableBody = $('.table-list-search tbody');
+							var tableRowsClass = $('.table-list-search tbody tr');
+							$('.search-sf').remove();
+							tableRowsClass
+									.each(function(i, val) {
+
+										//Lower text for case insensitive
+										var rowText = $(val).text()
+												.toLowerCase();
+										var inputText = $(that).val()
+												.toLowerCase();
+
+										if (inputText != '') {
+											$('.search-query-sf').remove();
+											tableBody
+													.prepend('<tr class="search-query-sf"><td colspan="6"><strong>Searching for: "'
+															+ $(that).val()
+															+ '"</strong></td></tr>');
+										} else {
+											$('.search-query-sf').remove();
+										}
+
+										if (rowText.indexOf(inputText) == -1) {
+											//hide rows
+											tableRowsClass.eq(i).hide();
+
+										} else {
+											$('.search-sf').remove();
+											tableRowsClass.eq(i).show();
+										}
+									});
+							//all tr elements are hidden
+							if (tableRowsClass.children(':visible').length == 0) {
+								tableBody
+										.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
+							}
+						});
+
 	});
+	//Realtime Search function of Table
+	var activeSystemClass = $('.list-group-item.active');
+
+	//something is entered in search form
+	$('#system-search')
+			.keyup(
+					function() {
+						var that = this;
+						// affect all table rows on in systems table
+						var tableBody = $('.table-list-search tbody');
+						var tableRowsClass = $('.table-list-search tbody tr');
+						$('.search-sf').remove();
+						tableRowsClass
+								.each(function(i, val) {
+
+									//Lower text for case insensitive
+									var rowText = $(val).text().toLowerCase();
+									var inputText = $(that).val().toLowerCase();
+
+									if (hasWhiteSpace(inputText)) {
+										alert("true");
+									}
+
+									if (inputText != '') {
+										$('.search-query-sf').remove();
+										tableBody
+												.prepend('<tr class="search-query-sf"><td colspan="6"><strong>Searching for: "'
+														+ $(that).val()
+														+ '"</strong></td></tr>');
+									} else {
+										$('.search-query-sf').remove();
+									}
+
+									if (rowText.indexOf(inputText) == -1) {
+										//hide rows
+										tableRowsClass.eq(i).hide();
+
+									} else {
+										$('.search-sf').remove();
+										tableRowsClass.eq(i).show();
+									}
+								});
+						//all tr elements are hidden
+						if (tableRowsClass.children(':visible').length == 0) {
+							tableBody
+									.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
+						}
+					});
 </script>
 </head>
 <body>
@@ -160,9 +273,7 @@
 					class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="#"><img
-				src="./res/img/movielinelogo.png" alt="Mountain View"
-				style="height: 60px; padding-bottom: 30px;"></a>
-
+				src="./res/img/movielinelogo.png" id="logo"></a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -173,111 +284,28 @@
 				<li><a href="#"> </a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
+				<li><a> <input class="form-control" id="system-search"
+						name="q" placeholder="Suche eingeben" required>
+				</a></li>
 
-				<li><a href="#"> <input id="userName" type="text"
+				<li><a> <input id="userName" type="text"
 						class="form-control" name="usr" placeholder="Admin">
 				</a></li>
-				<li><a href="#"><input id="password" type="password"
+
+				<li><a><input id="password" type="password"
 						class="form-control" name="pword" placeholder="Password"
 						required=""> </a></li>
+
 				<li><a href="#">
 						<button id="loginBtn" type="submit" class="btn btn-info">Sign
 							In</button>
 				</a></li>
+
 			</ul>
 		</div>
 	</div>
-	<div id="detailBtn">
-		<div class="mockup-content">
-			<div
-				class="morph-button morph-button-modal morph-button-modal-1 morph-button-fixed">
-				<button type="button" class="btn btn-info">Details</button>
-				<div class="morph-content">
-					<div>
-						<div class="content-style-text">
-							<span class="icon icon-close">Close the dialog</span>
-							<h2>Informations</h2>
-							<p>Fill in some informations about the movie!!</p>
-							<p>
-								<input id="terms" type="checkbox" /><label for="terms"></label>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- morph-button -->
-		</div>
-		<!-- /form-mockup -->
-		</section>
-	</div>
-	<!-- /container -->
-	<script src="res/js/classie.js"></script>
-	<script src="res/js/uiMorphingButton_fixed.js"></script>
-	<script>
-			(function() {	
-				var docElem = window.document.documentElement, didScroll, scrollPosition;
-
-				// trick to prevent scrolling when opening/closing button
-				function noScrollFn() {
-					window.scrollTo( scrollPosition ? scrollPosition.x : 0, scrollPosition ? scrollPosition.y : 0 );
-				}
-
-				function noScroll() {
-					window.removeEventListener( 'scroll', scrollHandler );
-					window.addEventListener( 'scroll', noScrollFn );
-				}
-
-				function scrollFn() {
-					window.addEventListener( 'scroll', scrollHandler );
-				}
-
-				function canScroll() {
-					window.removeEventListener( 'scroll', noScrollFn );
-					scrollFn();
-				}
-
-				function scrollHandler() {
-					if( !didScroll ) {
-						didScroll = true;
-						setTimeout( function() { scrollPage(); }, 60 );
-					}
-				};
-
-				function scrollPage() {
-					scrollPosition = { x : window.pageXOffset || docElem.scrollLeft, y : window.pageYOffset || docElem.scrollTop };
-					didScroll = false;
-				};
-
-				scrollFn();
-
-				var UIBtnn = new UIMorphingButton( document.querySelector( '.morph-button' ), {
-					closeEl : '.icon-close',
-					onBeforeOpen : function() {
-						// don't allow to scroll
-						noScroll();
-					},
-					onAfterOpen : function() {
-						// can scroll again
-						canScroll();
-					},
-					onBeforeClose : function() {
-						// don't allow to scroll
-						noScroll();
-					},
-					onAfterClose : function() {
-						// can scroll again
-						canScroll();
-					}
-				} );
-
-				document.getElementById( 'terms' ).addEventListener( 'change', function() {
-					UIBtnn.toggle();
-				} );
-			})();
-		</script>
-	</div>
-	</div>
 	<div class="carousel">
+		<br>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -290,16 +318,157 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-				
-				</div>
+					<table>
+						<tr>
+							<td><p>Hallo</p></td>
+						</tr>
+						<tr>
+							<td><p>Hallo</p></td>
+							<td><p>Hallo</p></td>
+							<td><p>Hallo</p></td>
+							<td><p>
+								<div id="detailBtn">
+									<div class="mockup-content">
+										<div
+											class="morph-button morph-button-modal morph-button-modal-1 morph-button-fixed">
+											<button type="button" class="btn btn-info">Details</button>
+											<div class="morph-content">
+												<div>
+													<div class="content-style-text">
+														<span class="icon icon-close">Close the dialog</span>
+														<h2>Informations</h2>
+														<p>Fill in some informations about the movie!!</p>
+														<p>
+															<input id="terms" type="checkbox" /><label for="terms"></label>
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- morph-button -->
+									</div>
 
-				<div class="item">hallo</div>
+									<!-- /form-mockup -->
+								</div> <!-- /container --> <script src="./res/js/classie.js"></script>
+								<script src="./res/js/uiMorphingButton_fixed.js"></script> <script>
+									(function() {
+										var docElem = window.document.documentElement, didScroll, scrollPosition;
+
+										// trick to prevent scrolling when opening/closing button
+										function noScrollFn() {
+											window
+													.scrollTo(
+															scrollPosition ? scrollPosition.x
+																	: 0,
+															scrollPosition ? scrollPosition.y
+																	: 0);
+										}
+
+										function noScroll() {
+											window.removeEventListener(
+													'scroll', scrollHandler);
+											window.addEventListener('scroll',
+													noScrollFn);
+										}
+
+										function scrollFn() {
+											window.addEventListener('scroll',
+													scrollHandler);
+										}
+
+										function canScroll() {
+											window.removeEventListener(
+													'scroll', noScrollFn);
+											scrollFn();
+										}
+
+										function scrollHandler() {
+											if (!didScroll) {
+												didScroll = true;
+												setTimeout(function() {
+													scrollPage();
+												}, 60);
+											}
+										}
+										;
+
+										function scrollPage() {
+											scrollPosition = {
+												x : window.pageXOffset
+														|| docElem.scrollLeft,
+												y : window.pageYOffset
+														|| docElem.scrollTop
+											};
+											didScroll = false;
+										}
+										;
+
+										scrollFn();
+
+										var UIBtnn = new UIMorphingButton(
+												document
+														.querySelector('.morph-button'),
+												{
+													closeEl : '.icon-close',
+													onBeforeOpen : function() {
+														// don't allow to scroll
+														noScroll();
+													},
+													onAfterOpen : function() {
+														// can scroll again
+														canScroll();
+													},
+													onBeforeClose : function() {
+														// don't allow to scroll
+														noScroll();
+													},
+													onAfterClose : function() {
+														// can scroll again
+														canScroll();
+													}
+												});
+
+										document.getElementById('terms')
+												.addEventListener('change',
+														function() {
+															UIBtnn.toggle();
+														});
+									})();
+								</script></td>
+						</tr>
+						<tr>
+							<td><p>Hallo</p></td>
+						</tr>
+						<tr>
+							<td><p>Hallo</p></td>
+						</tr>
+
+					</table>
+				</div>
+				<div class="item">
+					<div id="table" class="col-md-10">
+						<table id="data" class="table table-list-search">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Genre</th>
+									<th>Release</th>
+									<th>Info</th>
+									<th>Actors</th>
+									<th></th>
+									<th></th>
+								</tr>
+							</thead>
+						</table>
+
+					</div>
+				</div>
 
 				<div class="item">he</div>
 
 				<div class="item">ho</div>
 			</div>
-
+			<div id="footer">©</div>
 			<!-- Left and right controls -->
 			<a class="left carousel-control" href="#myCarousel" role="button"
 				data-slide="prev"> <span
@@ -311,9 +480,8 @@
 				<span class="sr-only">Next</span>
 			</a>
 		</div>
-
 		<br>
-		<div id="footer" >© Team Fenster and Sam</div>
+		<div id="footer">© Team Fenster and Sam</div>
 	</div>
 </body>
 </html>

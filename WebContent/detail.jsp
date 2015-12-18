@@ -21,50 +21,82 @@
 	$(function() {
 
 		$(document).ready(function() {
+			loadData();
 			detail();
-
+		
 		});
 
+		function loadData() {
+			$.ajax({
+				headers : {
+					Accept : 'application/json'
+				},
+				type : 'GET',
+				url : "http://10.115.1.7:8080/13_REST_Movieline/rest/movieDetails/movie",
+		
+				success : function(data) {
+					alert("YES");
+					var html = '<table class="table table-striped table-hover table-responsive"><tr class="fontrow"><td>ToDo</td><td class="col-md-1">check</td><td class="col-md-2">Delete</td></tr>';
+					var movieArr = data.movieline;
+					for (i = 0; i < movieArr.length; i++) {
+						html = html + "<tr><td>" + movieArr[i].todo+ "</td><td align='center'><label><input type='checkbox' value=''></label></td><td align='center' data-id='"+todoArr[i].id+"' class='btn btn-danger' id='btnDel'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></td></tr>";
+
+				}
+					
+					html = html + "</tabel>";
+					$("#data").html(html);
+			},
+		
+				error : function(e) {
+					console.log(e);
+				}
+		
+			});
+		}
+		
 		function detail() {
 
 		}
 	});
 </script>
 <style>
-#movie {
-	margin-top: 100px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 1000px;
-	padding: 20px 20px 20px 20px;
-	background-color: white;
-}
+	#movie {
+		margin-top:100px;
+		margin-left: auto ;
+  		margin-right: auto ;
+		width: 1000px;
+		padding: 20px 20px 20px 20px;
+		background-color:white;
+	}
 
-#pic {
-	width: 100px;
-	heigt: 200px;
-	border-style: solid;
-	float: left;
-	margin-right: 10px;
-}
+	#pic{
+		width: 100px;
+		heigt:200px;
+		border-style: solid;
+		float: left;
+		margin-right: 10px;
+	}
 
-#title {
-	width: 5000;
-	heigt: 50px;
-}
+	#title{
+		width: 5000;
+		heigt: 50px;
+	}
 
-#rightSide {
-	margin-left: 10px;
-}
+	#rightSide{
+		margin-left:10px;
+		width: 150px;
+	}
 
-#content {
-	margin-top: 50px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 1000px;
-	padding: 20px 20px 20px 20px;
-	background-color: white;
-}
+	#content {
+		margin-top:50px;
+		margin-left: auto ;
+  		margin-right: auto ;
+		width: 1000px;
+		padding: 20px 20px 20px 20px;
+		background-color:white;
+	}
+
+
 </style>
 </head>
 <body>
