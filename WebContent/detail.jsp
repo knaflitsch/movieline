@@ -7,6 +7,8 @@
 <title>Dr.Eier der Hydrapenis</title>
 <script src="res/js/jquery.js" type="text/javascript"></script>
 <script src="res/js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="like-dislike-master/js/like-dislike.min.js"></script>
 <link rel="stylesheet" href="res/css/jquery-ui.min.css">
 <link
 	href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css"
@@ -18,13 +20,46 @@
 <link href="res/css/bootstrap.min.css" rel="stylesheet">
 <link href="res/css/carousel.css" rel="stylesheet">
 <script type="text/javascript">
+
+	
 	$(function() {
 
 		$(document).ready(function() {
 			loadData();
+			like();
 			detail();
 		
 		});
+		
+		function like(){
+			$('#rating').likeDislike({
+			    reverseMode: true,
+			    activeBtn: localStorage['key']? localStorage['key'] : '',
+			    click: function(btnType, likes, dislikes, event) {
+			      var self = this;
+
+			      // lock the buttons
+			      self.readOnly(true);
+
+			      // send data to the server
+			      $.ajax({
+			        url: '/action',
+			        type: 'GET',
+			        data: 'id=1' + '&likes=' + likes + '&dislikes=' + dislikes,
+			        success: function (data) {
+			          // show new values
+			          $(self).find('.likes').text(data.likes);
+			          $(self).find('.dislikes').text(data.dislikes);
+			          localStorage['key'] = btnType;
+
+			          // unlock the buttons
+			          self.readOnly(false);
+			        }
+			      });
+			    }
+			  });
+		}
+		
 
 		function loadData() {
 			$.ajax({
@@ -32,19 +67,35 @@
 					Accept : 'application/json'
 				},
 				type : 'GET',
-				url : "http://10.115.1.7:8080/13_REST_Movieline/rest/movieDetails/movie",
+				url : "http://10.115.1.7:8080/13_REST_Movieline/rest/movieDetails/movie/id",
 		
 				success : function(data) {
-					alert("YES");
-					var html = '<table class="table table-striped table-hover table-responsive"><tr class="fontrow"><td>ToDo</td><td class="col-md-1">check</td><td class="col-md-2">Delete</td></tr>';
-					var movieArr = data.movieline;
+					var html = '<div id="rest"><table><tr><td>Titel</td><td>Jahr</td><td>Stern</td><td>Inhalt</td><td></td>Urauffuehrung<td></td><td>Drehbuch</td><td></td>Laenge<td></td><td>Land</td><td>Regie</td><td>FSK-Freigabe</td><td>Kamera</td><td>Musik</td><td>Drehbuchautor</td><td>Ton</td><td>Produktionsfirma</td><td>Produzent</td><td>Genre</td></tr>';
+					var movieArr = data.movie;
 					for (i = 0; i < movieArr.length; i++) {
-						html = html + "<tr><td>" + movieArr[i].todo+ "</td><td align='center'><label><input type='checkbox' value=''></label></td><td align='center' data-id='"+todoArr[i].id+"' class='btn btn-danger' id='btnDel'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></td></tr>";
+						html = html + "<tr><td>" + movieArr[i].titel + "</td>"+
+						"<td>"+ movieArr[i].year +"</td>"+
+						"<td>"+ movieArr[i].likes +"</td>"+
+						"<td>"+ movieArr[i].plott +"</td>"+
+						"<td>"+ movieArr[i].premiere +"</td>"+
+						"<td>"+ movieArr[i].scenario +"</td>"+
+						"<td>"+ movieArr[i].duration +"</td>"+
+						"<td>"+ movieArr[i].country +"</td>"+
+						"<td>"+ movieArr[i].regie +"</td>"+
+						"<td>"+ movieArr[i].agerating +"</td>"+
+						"<td>"+ movieArr[i].camera +"</td>"+
+						"<td>"+ movieArr[i].music +"</td>"+
+						"<td>"+ movieArr[i].scenarioactor +"</td>"+
+						"<td>"+ movieArr[i].soundeffect +"</td>"+	
+						"<td>"+ movieArr[i].company +"</td>"+
+						"<td>"+ movieArr[i].producer +"</td>"+
+						"<td>"+ movieArr[i].genre +"</td>"+
+						"</tr>";
 
 				}
 					
-					html = html + "</tabel>";
-					$("#data").html(html);
+					html = html + "</table></div>";
+					$("#wrapper").html(html);
 			},
 		
 				error : function(e) {
@@ -60,11 +111,11 @@
 	});
 </script>
 <style>
-	#movie {
+	#rest {
 		margin-top:100px;
 		margin-left: auto ;
   		margin-right: auto ;
-		width: 1000px;
+		width: 80%;
 		padding: 20px 20px 20px 20px;
 		background-color:white;
 	}
@@ -102,7 +153,7 @@
 <body>
 
 	<div id="wrapper">
-		<div id="movie">
+ 		<div id="movie">
 			<div id="pic">Bild</div>
 			<div id="rightSide">
 				<div id="title">Title</div>
@@ -128,7 +179,16 @@
 			<div id="company">Company</div>
 			<div id="ageRating">AgeRating</div>
 		</div>
+		
+		<div id="rating">
+		  <button class="like">Like</button>
+		  <span class="likes">0</span>
+		  <button class="dislike">Dislike</button>
+		  <span class="dislikes">0</span>
+		</div>
+
 	</div>
 
+	
 </body>
 </html>
