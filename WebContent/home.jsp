@@ -484,7 +484,7 @@
 			</a>
 		</div>
 		<br>
-		<div id="footer">© Team Fenster and Sam</div>
+		<div id="footer">© Team Fenster</div>
 	</div>
 </body>
 </html>
